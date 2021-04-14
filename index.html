@@ -23,19 +23,21 @@
       <header>
         <h2 class="choose" id="chooseText">Choose your game!</h2>
       </header>
-      <!-- <nav class="nav classic" id="classic"><h2 class="nav-title">CLASSIC</h2></nav>
-      <nav class="nav difficult" id="difficult"><h2 class="nav-title">DIFFICULT</h2></nav> -->
-      <input type="button" class="classic nav" id="classicBtn" name="classic" value="Classic">
-      <input type="button" class="difficult nav" id="difficultBtn" name="difficult" value="Difficult">
+      <div class="choose-game-btns" id="changeGameBtns">
+        <!-- <nav class="nav classic" id="classic"><h2 class="nav-title">CLASSIC</h2></nav>
+        <nav class="nav difficult" id="difficult"><h2 class="nav-title">DIFFICULT</h2></nav> -->
+        <input type="button" class="classic nav" id="classicBtn" name="classic" value="Classic">
+        <input type="button" class="difficult nav" id="difficultBtn" name="difficult" value="Difficult">
+      </div>
     </section>
     <section class="game-board">
-      <div class="rock hidden">
+      <div class="rock hidden" id="rockIcon">
         <img src="assets/black-and-white-rocks.png" alt="rocks-icon">
       </div>
-      <div class="paper hidden">
+      <div class="paper hidden" id="paperIcon">
         <img src="assets/black-and-white-paper.png" alt="paper-icon">
       </div>
-      <div class="scissors hidden">
+      <div class="scissors hidden" id="scissorsIcon">
         <img src="assets/black-and-white-scissors.png" alt="scissors-icon">
       </div>
     </section>
