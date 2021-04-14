@@ -1,0 +1,110 @@
+* {
+  /* border: 2px solid blue; */
+  margin: 0;
+  padding: 0;
+  length: 100%;
+  font-family: Monaco; sans serif;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 1.8em;
+  margin-top: 2%;
+}
+
+h2, h4 {
+  margin: 4% 2%;
+}
+
+.choose {
+  margin-top: 2%;
+}
+
+.whole-page {
+  display: flex;
+  flex-direction: row;
+  length: 100%;
+}
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 2em;
+}
+
+.human,
+.computer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 2%;
+  width: 25%;
+  background-color: #78f58a;
+  padding-top: 8%;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 15vw;
+  height: 20vh;
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 1.8em;
+  border-radius: 0.2em;
+}
+
+.icon {
+  font-size: 3em;
+}
+
+.classic {
+  width: 23vw;
+  height: 30.6vh;
+  margin-left: 26%;
+}
+
+.difficult {
+  margin-top: 5%;
+  width: 23vw;
+  height: 32.6vh;
+  margin-left: 26%;
+}
+
+.game-area {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  background-color: #48b858;
+}
+
+img {
+  width: 15vw;
+  height: 20vh;
+}
+
+.game-board {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  /* padding-top: 5%; */
+  padding-bottom: 5%;
+  margin-bottom: 0;
+}
