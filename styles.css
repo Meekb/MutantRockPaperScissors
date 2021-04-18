@@ -117,7 +117,9 @@ h2, h4 {
 
 img {
   width: 15vw;
-  height: 20vh;
+  height: 33vh;
+  padding-top: 10vh;
+  padding-bottom: 24vh;
 }
 
 .game-board {
@@ -125,6 +127,14 @@ img {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  padding-top: 25vh;
-  padding-bottom: 27vh;
+  padding-top: 5vh;
+  padding-left: 5vw;
+  padding-right: 1vw;
+  padding-left: 1vw;
+}
+
+.rockIcon,
+.paperIcon,
+.scissorsIcon {
+  
 }

@@ -6,11 +6,16 @@ class Player {
   }
 
   saveWinsToStorage() {
-    //set item, JSON parse, store data
+    var humanWinsToStore =
+    localStorage.setItem(JSON.stringify('storedHumanWins', newGame.human.wins));
+    localStorage.setItem(JSON.stringify('storedCompWins', newGame.computer.wins));
   }
 
   retrieveWinsFromStorage() {
-    //get item, JSON parse, load data
+    var retrieveHumanWins =
+    localStorage.getItem('storedHumanWins', newGame.human.wins);
+    var retrieveCompWins =
+    localStorage.getItem('storedCompWins', newGame.computer.wins);
   }
 
 };
