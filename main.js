@@ -10,7 +10,36 @@ classicBtn.addEventListener('click', startClassicGame)
 // EVENT HANDLERS
 
 //master game functions
-function startClassicGame() {}
+function startClassicGame() {
+  createNewClassicGame();
+  loadClassicWins();
+  newGame.human.name = 'Human';
+  newGame.computer.name = 'Machine';
+  newGame.human.token = '🧠';
+  newGame.computer.token = '🤖';
+  console.log(newGame);
+}
+
+function createNewClassicGame() {
+  newGame = new Game({human: new Player(), computer: new Player(), type: 'Classic'});
+}
+
+function loadClassicWins() {
+  if (localStorage === null) {
+    newGame.human.wins = 0;
+    newGame.computer.wins = 0;
+    console.log('no storage!');
+  }
+}
+
+function startDifficultGame() {
+  newGame = new Game({human: new Player(), computer: new Player(), type: 'Difficult'});
+  newGame.human.name = 'Human';
+  newGame.computer.name = 'Machine';
+  newGame.human.token = '🧠';
+  newGame.computer.token = '🤖';
+  console.log(newGame);
+}
 
 
 

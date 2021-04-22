@@ -17,6 +17,8 @@ class Game {
     console.log(computerIcon)
   }
 
+  
+
   // humanChoice() {
   //
   // }
