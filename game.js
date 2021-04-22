@@ -6,7 +6,7 @@ class Game {
   }
 
   computerChoice() {
-    var computerChoice = Math.round(Math.random() * 3);
+    var computerChoice = Math.floor(Math.random() * 3);
     if (computerChoice === 1) {
       var computerIcon = 'rock'
     } else if (computerChoice === 2) {
