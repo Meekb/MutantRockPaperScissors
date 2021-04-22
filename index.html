@@ -12,32 +12,45 @@
     <div class="player-info">
       <p class="icon">🧠👤</p><br>
       <p>HUMAN</p><br>
-      <p>WINS: 0</p><br>
+      <p id="humanWinCounter">WINS: 0</p><br>
     </div>
   </aside>
-  <main class="game-area">
-    <header>
+  <main class="main-container">
+    <header class="slide">
       <h1>ROCK PAPER SCISSORS</h1>
     </header>
-    <section>
+    <section class="choose-area" id="chooseContainer">
       <header>
         <h2 class="choose" id="chooseText">Choose your game!</h2>
       </header>
-      <!-- <nav class="nav classic" id="classic"><h2 class="nav-title">CLASSIC</h2></nav>
-      <nav class="nav difficult" id="difficult"><h2 class="nav-title">DIFFICULT</h2></nav> -->
-      <input type="button" class="classic nav" name="classic" value="Classic">
-      <input type="button" class="difficult nav" name="difficult" value="Difficult">
+      <div class="choose-game-btns" id="changeGameBtns">
+        <!-- <nav class="nav classic" id="classic"><h2 class="nav-title">CLASSIC</h2></nav>
+        <nav class="nav difficult" id="difficult"><h2 class="nav-title">DIFFICULT</h2></nav> -->
+        <button type="button" name="classic" class="classic nav" id="classicBtn">CLASSIC:<br>ROCK > SCISSORS<BR>PAPER > ROCK<BR>SCISSORS > PAPER</button>
+        <input type="button" class="difficult nav" id="difficultBtn" name="difficult" value="Difficult">
+      </div>
     </section>
-    <section class="game-board">
-      <div class="rock hidden">
+    <section class="game-board game" id="gameContainer">
+      <div class="rock hidden" id="rockIcon">
         <img src="assets/black-and-white-rocks.png" alt="rocks-icon">
       </div>
-      <div class="paper hidden">
+      <div class="paper hidden" id="paperIcon">
         <img src="assets/black-and-white-paper.png" alt="paper-icon">
       </div>
-      <div class="scissors hidden">
+      <div class="scissors hidden" id="scissorsIcon">
         <img src="assets/black-and-white-scissors.png" alt="scissors-icon">
       </div>
+    </section>
+    <section class="winner-display game-win hidden" id="winnerContainer">
+      <div class="win-icon hidden" id="humanPickedIcon">
+        <!-- <img src="assets/black-and-white-rocks.png" alt="rocks-icon"> -->
+      </div>
+      <div class="win-icon hidden" id="compPickedIcon">
+        <!-- <img src="assets/black-and-white-paper.png" alt="paper-icon"> -->
+      </div>
+      <!-- <div class="scissors hidden" id="scissorsIcon"> -->
+        <!-- <img src="assets/black-and-white-scissors.png" alt="scissors-icon"> -->
+      <!-- </div> -->
     </section>
   </main>
   <aside class="computer">
@@ -47,5 +60,8 @@
       <p>WINS: 0</p><br>
     </div>
   </aside>
+  <script type="text/javascript" src="player.js"></script>
+  <script type="text/javascript" src="game.js"></script>
+  <script type="text/javascript" src="main.js"></script>
 </body>
 </html>

@@ -7,9 +7,12 @@
   font-weight: 600;
 }
 
-.hidden {
-  display: none;
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
+
 
 header {
   display: flex;
@@ -19,12 +22,39 @@ header {
   margin-top: 2%;
 }
 
+.main-container {
+  width: 70%;
+  background-color: #a1aec4;
+  height: auto;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
 h2, h4 {
   margin: 4% 2%;
 }
 
+.choose-area {
+  /* border: 2px solid blue; */
+  margin-top: 0;
+  height: auto;
+  background-color: #a1aec4;
+  /* border-left: 2px solid black;
+  border-right: 2px solid black; */
+}
+
 .choose {
-  margin-top: 2%;
+  /* margin-top: 2%; */
+}
+
+.game-area {
+  display: flex;
+  flex-direction: column;
+  width: 61vw;
+  height: auto;
+  /* border-left: 2px solid black;
+  border-right: 2px solid black; */
+  /* background-color: #a1aec4; */
 }
 
 .whole-page {
@@ -48,8 +78,9 @@ h2, h4 {
   justify-content: flex-start;
   align-items: center;
   padding-top: 2%;
-  width: 25%;
-  background-color: #78f58a;
+  width: 32vw;
+  height: auto;
+  background-color: #97aac9;
   padding-top: 8%;
 }
 
@@ -59,12 +90,13 @@ h2, h4 {
   justify-content: flex-start;
   align-items: center;
   width: 15vw;
-  height: 20vh;
+  height: auto;
   background-color: Transparent;
   background-repeat: no-repeat;
   cursor: pointer;
   overflow: hidden;
-  font-size: 1.8em;
+  font-size: 1.3em;
+  font-weight: 600;
   border-radius: 0.2em;
 }
 
@@ -74,29 +106,30 @@ h2, h4 {
 
 .classic {
   width: 23vw;
-  height: 30.6vh;
+  height: 21.6vh;
   margin-left: 26%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* align-items: center; */
+  padding: 5%;
 }
 
 .difficult {
+  padding-top: 3%;
   margin-top: 5%;
   width: 23vw;
-  height: 32.6vh;
+  height: 33.6vh;
   margin-left: 26%;
+  margin-bottom: 3vh;
 }
 
-.game-area {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
-  background-color: #48b858;
-}
 
 img {
   width: 15vw;
-  height: 20vh;
+  height: 33vh;
+  padding-top: 10vh;
+  padding-bottom: 24vh;
 }
 
 .game-board {
@@ -104,7 +137,18 @@ img {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  /* padding-top: 5%; */
-  padding-bottom: 5%;
-  margin-bottom: 0;
+  /* padding-top: 5vh;
+  padding-left: 5vw;
+  padding-right: 1vw;
+  padding-left: 1vw; */
+}
+
+.rockIcon,
+.paperIcon,
+.scissorsIcon {
+
+}
+
+.hidden {
+  display: none;
 }
