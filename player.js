@@ -14,7 +14,7 @@ class Player {
   retrieveWinsFromStorage() {
     var retrieveHumanWins =
     localStorage.getItem('storedHumanWins', newGame.human.wins);
-    var retrieveCompWins =
+    var retrieveComgopWins =
     localStorage.getItem('storedCompWins', newGame.computer.wins);
   }
 
