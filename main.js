@@ -35,7 +35,7 @@ var newGame;
 // EVENT LISTENERS
 classicBtn.addEventListener('click', startClassicGame);
 difficultBtn.addEventListener('click', startDifficultGame);
-classicListenArea.addEventListener('click', test);
+classicListenArea.addEventListener('click', winGame);
 
 // EVENT HANDLERS
 
@@ -48,7 +48,7 @@ function startClassicGame() {
   newGame.loadWins();
   changeToGameScreen();
   changeToPickText();
-  console.log(newGame);
+  // console.log(newGame);
 }
 
 function startDifficultGame() {
@@ -58,19 +58,19 @@ function startDifficultGame() {
   newGame.loadTokens();
   newGame.loadWins();
   changeToGameScreen();
-  console.log(newGame);
+  // console.log(newGame);
 }
 
 function createGame() {
   newGame = new Game();
 }
 
-function test() {
+function winGame() {
+  console.log('comp', newGame.computer.computerTurn());
   var humanPick = newGame.human.humanTurn()
-  console.log(humanPick);
-  var computerPick = newGame.computer.computerTurn();
-  console.log(computerPick)
-  // newGame.determineWinner();
+  console.log('human', humanPick)
+  newGame.determineWinner();
+  changeToWinnerText();
   // newGame.adjustWins();
   // console.log(newGame);
 }
@@ -90,6 +90,16 @@ function changeToGameScreen() {
 
 function changeToPickText() {
   chooseWinText.innerText = '🧠 Human Pick Your Weapon 🧠'
+}
+
+function changeToWinnerText() {
+  if (newGame.determineWinner() === 'DRAW') {
+    chooseText.innerText = '😬 Sorry, It Was A Draw! 😬'
+  } else if (newGame.determineWinner() === 'Computer') {
+    chooseText.innerText = '🤖 Machine Won This Round! 🤖'
+  } else {
+    chooseText.innerText = '🧠  Hooray, You Beat The Machine! 🧠'
+  }
 }
 
 // toggle and hide functions

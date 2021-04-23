@@ -28,7 +28,7 @@ class Game {
       this.human.token = '🧠'
       this.computer.token = '🤖'
     } else if (this.type === 'Difficult') {
-      console.log('nope')
+      // console.log('nope')
       this.human.token = '🥷🏽'
       this.computer.token = '🤮'
     }
@@ -38,53 +38,29 @@ class Game {
     if (localStorage === null) {
       this.human.wins = 0;
       this.computer.wins = 0;
-      console.log('no storage!');
+      // console.log('no storage!');
     }
   }
 
-  // computerChoice() {
-  //   var computerChoice = Math.floor(Math.random() * 3);
-  //   if (computerChoice === 1) {
-  //     var computerIcon = 'rock'
-  //   } else if (computerChoice === 2) {
-  //     computerIcon = 'paper'
-  //   } else {
-  //     computerIcon = 'scissors'
-  //   }
-  //   console.log(computerIcon)
-  // }
-
   determineWinner() {
     var winner;
-      if (this.human.humanTurn() === this.computer.computerTurn()) {
-      winner = 'DRAW'
-      console.log('It\'s a draw!!!');
-      return winner
-    } else if (this.human.humanTurn() === 'rock' && this.computer.computerTurn() === 'paper') {
+      if (this.human.humanTurn() === 'rock' && this.computer.computerTurn() === 'paper') {
       winner = 'Computer'
-      console.log('Computer WINS!!!');
-      return winner
     } else if (this.human.humanTurn() === 'rock' && this.computer.computerTurn() === 'scissors') {
       winner = 'Human'
-      console.log('Human WINS!!!');
-      return winner
     } else if (this.human.humanTurn() === 'paper' && this.computer.computerTurn() === 'scissors') {
       winner = 'Computer'
-      console.log('Computer WINS!!!');
-      return winner
     } else if (this.human.humanTurn() === 'paper' && this.computer.computerTurn() === 'rock') {
       winner = 'Human'
-      console.log('Human WINS!!!');
-      return winner
     } else if (this.human.humanTurn() === 'scissors' && this.computer.computerTurn() === 'rock') {
       winner = 'Computer'
-      console.log('Conmputer WINS!!!');
-      return winner
     } else if (this.human.humanTurn() === 'scissors' && this.computer.computerTurn() === 'paper') {
       winner = 'Human'
-      console.log('Human WINS!!!');
-      return winner
+    } else {
+      winner = 'DRAW'
+      // console.log('It\'s a draw!!!');
     }
+    return winner
   }
 
   adjustWins() {

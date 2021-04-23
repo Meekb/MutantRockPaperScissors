@@ -3,16 +3,15 @@ class Player {
     this.name = name;
     this.token = token;
     this.wins = 0;
-    // this.playerStats = [];
   }
 
   humanTurn() {
     if (event.target.id === 'rockIcon') {
-      console.log('rock')
+      return 'rock'
     } else if (event.target.id === 'paperIcon') {
-      console.log('paper')
+      return 'paper'
     } else {
-      console.log('scissors')
+      return 'scissors'
     }
   }
 
@@ -25,7 +24,7 @@ class Player {
     } else {
       computerIcon = 'scissors'
     }
-    console.log(computerIcon)
+    return computerIcon
   }
 
   saveWinsToStorage() {
