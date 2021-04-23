@@ -16,26 +16,44 @@
     <header class="slide">
       <h1>ROCK PAPER SCISSORS</h1>
     </header>
-    <article class="choose-area" id="chooseContainer">
       <header>
         <h2 class="choose" id="chooseText">Choose your game!</h2>
       </header>
+      <article class="choose-area" id="chooseContainer">
       <section class="choose-game-btns" id="changeGameBtns">
         <button type="button" name="classic" class="classic nav" id="classicBtn">CLASSIC:<br>ROCK > SCISSORS<BR>PAPER > ROCK<BR>SCISSORS > PAPER</button>
         <input type="button" class="difficult nav" id="difficultBtn" name="difficult" value="Difficult">
       </section>
     </article>
-    <article class="game-board game" id="gameContainer">
-      <section class="rock hidden" id="rockIcon">
-        <img src="assets/black-and-white-rocks.png" alt="rocks-icon">
-      </section>
-      <section class="paper hidden" id="paperIcon">
-        <img src="assets/black-and-white-paper.png" alt="paper-icon">
-      </section>
-      <section class="scissors hidden" id="scissorsIcon">
-        <img src="assets/black-and-white-scissors.png" alt="scissors-icon">
-      </section>
-    </article>
+    <!-- <article class="game-board" id="classicGame"> -->
+      <div class="top-row-classic top-row-difficult hidden" id="topRowIcons">
+        <section class="rock" id="rockIcon">
+          <img src="assets/black-and-white-rocks.png" alt="rocks-icon">
+        </section>
+        <section class="paper" id="paperIcon">
+          <img src="assets/black-and-white-paper.png" alt="paper-icon">
+        </section>
+        <section class="scissors" id="scissorsIcon">
+          <img src="assets/black-and-white-scissors.png" alt="scissors-icon">
+        </section>
+        <section class="diff turtle" id="turtleIcon">
+          <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon">
+        </section>
+        <section class="diff pizza" id="pizzaIcon">
+          <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon">
+        </section>
+        <section class="diff sewer" id="sewerIcon">
+          <img src="assets/waste-sewer-svgrepo-com.svg" alt="sewer-icon">
+        </section>
+      </div>
+      <div class="bottom-row-difficult hidden" id="bottomRowIcons">
+        <section class="diff microphone" id="microphoneIcon">
+          <img src="assets/news-report-mic-svgrepo-com.svg" alt="microphone-icon">
+        </section>
+        <section class="diff ninja-star" id="ninjaStarIcon">
+          <img src="assets/ninja-star-svgrepo-com.svg" alt="ninja-star-icon">
+        </section>
+      </div>
     <article class="winner-display game-win hidden" id="winnerContainer">
       <section class="win-icon hidden" id="humanPickedIcon">
       </section>
