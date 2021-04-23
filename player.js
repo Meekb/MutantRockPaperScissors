@@ -1,9 +1,31 @@
 class Player {
-  constructor(name, token, wins) {
+  constructor(name, token) {
     this.name = name;
     this.token = token;
-    this.wins = wins;
-    this.playerStats = [];
+    this.wins = 0;
+    // this.playerStats = [];
+  }
+
+  takeTurn() {
+    if (event.target.id === 'rockIcon') {
+      console.log('rock')
+    } else if (event.target.id === 'paperIcon') {
+      console.log('paper')
+    } else {
+      console.log('scissors')
+    }
+  }
+
+  computerChoice() {
+    var computerChoice = Math.floor(Math.random() * 3);
+    if (computerChoice === 1) {
+      var computerIcon = 'rock'
+    } else if (computerChoice === 2) {
+      computerIcon = 'paper'
+    } else {
+      computerIcon = 'scissors'
+    }
+    console.log(computerIcon)
   }
 
   saveWinsToStorage() {

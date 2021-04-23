@@ -1,5 +1,5 @@
 * {
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   margin: 0;
   padding: 0;
   length: 100%;
@@ -35,12 +35,9 @@ h2, h4 {
 }
 
 .choose-area {
-  /* border: 2px solid blue; */
   margin-top: 0;
   height: auto;
   background-color: #a1aec4;
-  /* border-left: 2px solid black;
-  border-right: 2px solid black; */
 }
 
 .choose {
@@ -52,9 +49,6 @@ h2, h4 {
   flex-direction: column;
   width: 61vw;
   height: auto;
-  /* border-left: 2px solid black;
-  border-right: 2px solid black; */
-  /* background-color: #a1aec4; */
 }
 
 .whole-page {
@@ -104,7 +98,7 @@ h2, h4 {
   font-size: 3em;
 }
 
-.classic {
+.classic-btn {
   width: 23vw;
   height: 21.6vh;
   margin-left: 26%;
@@ -115,40 +109,21 @@ h2, h4 {
   padding: 5%;
 }
 
-.difficult {
+.difficult-btn {
   padding-top: 3%;
   margin-top: 5%;
   width: 23vw;
   height: 33.6vh;
   margin-left: 26%;
   margin-bottom: 3vh;
-  /* border: 2px solid blue; */
 }
 
 
 img {
   width: 12vw;
   height: 28vh;
-  padding-top: 10vh;
+  padding-top: 20vh;
   padding-bottom: 24vh;
-}
-
-.difficult-game {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  /* border: 2px solid blue; */
-}
-
-.top-row-classic {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 7vh;
-  padding-top: 25vh;
-  height: 28vh;
 }
 
 .paper {
@@ -161,10 +136,9 @@ img {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 5vh;
-  padding-top: 18vh;
+  margin: 15vh;
+  padding-top: 0vh;
   height: 28vh;
-  /* border: 2px solid blue; */
 }
 
 .top-row-difficult {
@@ -172,50 +146,39 @@ img {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  margin: 3vh;
-  padding-top: 9vh;
-  height: 28vh;
+  margin-bottom: 15vh;
+  height: 10vh;
   /* border: 2px solid blue; */
 }
 
 .bottom-row-difficult {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  margin: 3vh;
-  padding-top: 5vh;
-  height: 28vh;
+  margin-top: 7vh;
+  height: 20vh;
+  /* border: 2px solid blue; */
+}
+
+.diff {
+  height: 32vh;
 }
 
 .ninja-star,
 .microphone {
-  height: 15vh;
+  padding-left: 15vw;
+  padding-right: 5vw;
+  height: 10vh;
+  margin-bottom: 80vh;
 }
 
-.bottom-row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20vh;
-  padding-top: 12vh;
-  height: 28vh;
-  /* border: 2px solid blue; */
-}
-
-.game-board,
-.difficult-game {
+.game-board {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   height: auto;
-  /* padding-top: 5vh;
-  padding-left: 5vw;
-  padding-right: 1vw;
-  padding-left: 1vw; */
-  border: 2px solid blue;
 }
 
 .rockIcon,

@@ -21,37 +21,44 @@
       </header>
       <article class="choose-area" id="chooseContainer">
       <section class="choose-game-btns" id="changeGameBtns">
-        <button type="button" name="classic" class="classic nav" id="classicBtn">CLASSIC:<br>ROCK > SCISSORS<BR>PAPER > ROCK<BR>SCISSORS > PAPER</button>
-        <input type="button" class="difficult nav" id="difficultBtn" name="difficult" value="Difficult">
+        <button type="button" name="classic" class="classic-btn nav" id="classicBtn">CLASSIC:<br>ROCK > SCISSORS<BR>PAPER > ROCK<BR>SCISSORS > PAPER</button>
+        <input type="button" class="difficult-btn nav" id="difficultBtn" name="difficult" value="Difficult">
       </section>
     </article>
-    <!-- <article class="game-board" id="classicGame"> -->
       <div class="top-row-classic top-row-difficult hidden" id="topRowIcons">
-        <section class="rock" id="rockIcon">
-          <img src="assets/black-and-white-rocks.png" alt="rocks-icon">
+        <section class="rock">
+          <img src="assets/black-and-white-rocks.png" alt="rocks-icon" id="rockIcon">
+          <img src="assets/black-and-white-rocks.png" alt="rocks-icon" class="comp-rock hidden" id="rockIconComp">
         </section>
-        <section class="paper" id="paperIcon">
-          <img src="assets/black-and-white-paper.png" alt="paper-icon">
+        <section class="paper">
+          <img src="assets/black-and-white-paper.png" alt="paper-icon" id="paperIcon">
+          <img src="assets/black-and-white-paper.png" alt="paper-icon" class="comp-paper hidden" id="paperIconComp">
         </section>
-        <section class="scissors" id="scissorsIcon">
-          <img src="assets/black-and-white-scissors.png" alt="scissors-icon">
+        <section class="scissors">
+          <img src="assets/black-and-white-scissors.png" alt="scissors-icon" id="scissorsIcon">
+          <img src="assets/black-and-white-scissors.png" alt="scissors-icon" class="comp-scissors hidden" id="scissorsIconComp">
         </section>
-        <section class="diff turtle" id="turtleIcon">
-          <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon">
+        <section class="diff turtle">
+          <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" id="turtleIcon">
+          <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" class="comp-turtle hidden" id="turtleIconComp">
         </section>
-        <section class="diff pizza" id="pizzaIcon">
-          <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon">
+        <section class="diff pizza">
+          <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon" id="pizzaIcon">
+          <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon" class="comp-pizza hidden" id="pizzaIconComp">
         </section>
-        <section class="diff sewer" id="sewerIcon">
-          <img src="assets/waste-sewer-svgrepo-com.svg" alt="sewer-icon">
+        <section class="diff sewer">
+          <img src="assets/waste-sewer-svgrepo-com.svg" alt="sewer-icon" id="sewerIcon">
+          <img src="assets/waste-sewer-svgrepo-com.svg" alt="sewer-icon" class="comp-sewer hidden" id="sewerIconComp">
         </section>
       </div>
       <div class="bottom-row-difficult hidden" id="bottomRowIcons">
-        <section class="diff microphone" id="microphoneIcon">
-          <img src="assets/news-report-mic-svgrepo-com.svg" alt="microphone-icon">
+        <section class="diff microphone">
+          <img src="assets/news-report-mic-svgrepo-com.svg" alt="microphone-icon" id="micIcon">
+          <img src="assets/news-report-mic-svgrepo-com.svg" alt="microphone-icon" class="comp-mic hidden" id="micIconComp">
         </section>
-        <section class="diff ninja-star" id="ninjaStarIcon">
-          <img src="assets/ninja-star-svgrepo-com.svg" alt="ninja-star-icon">
+        <section class="diff ninja-star">
+          <img src="assets/ninja-star-svgrepo-com.svg" alt="ninja-star-icon" id="ninjaStarIcon">
+          <img src="assets/ninja-star-svgrepo-com.svg" alt="ninja-star-icon" class="comp-ninja-star hidden" id="ninjaStarIconComp">
         </section>
       </div>
     <article class="winner-display game-win hidden" id="winnerContainer">
@@ -64,7 +71,7 @@
   <aside class="computer">
     <section class="player-info">
       <p class="icon">🦾🤖</p><br>
-      <p>COMPUTER</p><br>
+      <p>MACHINE</p><br>
       <p>WINS: 0</p><br>
     </section>
   </aside>
