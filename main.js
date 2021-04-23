@@ -3,19 +3,26 @@
 var chooseScreen = document.getElementById('chooseContainer');
 var difficultGame = document.getElementById('difficultGame');
 var classicGame = document.getElementById('classicGame');
+var classicListenArea = document.getElementById('topRowIcons');
 
   //buttons
 var classicBtn = document.getElementById('classicBtn');
 var difficultBtn = document.getElementById('difficultBtn');
 
+  // innerText areas
+var chooseWinText = document.getElementById('chooseText');
+
   // icons
 var rock = document.getElementById('rockIcon');
 var paper = document.getElementById('paperIcon');
 var scissors = document.getElementById('scissorsIcon');
+var compRock = document.getElementById('rockIconComp');
+var compPaper = document.getElementById('paperIconComp');
+var compScissors = document.getElementById('scissorsIconComp');
 var turtle = document.getElementById('turtleIcon');
 var pizza = document.getElementById('pizzaIcon');
 var sewer = document.getElementById('sewerIcon');
-var mic = document.getElementById('microphoneIcon');
+var mic = document.getElementById('micIcon');
 var ninjaStar = document.getElementById('ninjaStarIcon');
 var topRowIcons = document.getElementById('topRowIcons');
 var bottomRowIcons = document.getElementById('bottomRowIcons');
@@ -26,8 +33,9 @@ var newGame;
 
 
 // EVENT LISTENERS
-classicBtn.addEventListener('click', startClassicGame)
-difficultBtn.addEventListener('click', startDifficultGame)
+classicBtn.addEventListener('click', startClassicGame);
+difficultBtn.addEventListener('click', startDifficultGame);
+classicListenArea.addEventListener('click', test);
 
 // EVENT HANDLERS
 
@@ -39,6 +47,7 @@ function startClassicGame() {
   newGame.loadTokens()
   newGame.loadWins();
   changeToGameScreen();
+  changeToPickText();
   console.log(newGame);
 }
 
@@ -53,7 +62,16 @@ function startDifficultGame() {
 }
 
 function createGame() {
-  newGame = new Game({human: new Player(), computer: new Player()})
+  newGame = new Game();
+}
+
+function test() {
+  var pick = newGame.human.takeTurn()
+  console.log(pick);
+  newGame.computer.takeTurn();
+  newGame.determineWinner();
+  newGame.adjustWins();
+  console.log(newGame);
 }
 
 function changeToGameScreen() {
@@ -67,6 +85,10 @@ function changeToGameScreen() {
     unhideElement(bottomRowIcons);
     toggleClassicIcons(rock, paper, scissors);
   }
+}
+
+function changeToPickText() {
+  chooseWinText.innerText = '🧠 Human Pick Your Weapon 🧠'
 }
 
 // toggle and hide functions

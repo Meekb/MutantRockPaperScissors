@@ -1,86 +1,86 @@
 class Game {
   constructor() {
-    this.human = new Player();
+    this.human = new Player()
     this.computer = new Player();
     this.type = 'Classic' || 'Difficult';
   }
 
   gameType() {
     if (event.target.id === 'classicBtn') {
-      newGame.type = 'Classic'
+      this.type = 'Classic'
     } else {
-      newGame.type = 'Difficult'
+      this.type = 'Difficult'
     }
   }
 
   loadPlayerNames() {
-    if (newGame.type === 'Classic') {
-      newGame.human.name = 'Human';
-      newGame.computer.name = 'Machine';
+    if (this.type === 'Classic') {
+      this.human.name = 'Human';
+      this.computer.name = 'Machine';
     } else {
-      newGame.human.name = 'Donatello';
-      newGame.computer.name = 'Shredder'
+      this.human.name = 'Donatello';
+      this.computer.name = 'Shredder'
     }
   }
 
   loadTokens() {
-    if (newGame.type === 'Classic') {
-      newGame.human.token = '🧠'
-      newGame.computer.token = '🤖'
-    } else if (newGame.type === 'Difficult') {
+    if (this.type === 'Classic') {
+      this.human.token = '🧠'
+      this.computer.token = '🤖'
+    } else if (this.type === 'Difficult') {
       console.log('nope')
-      newGame.human.token = '🥷🏽'
-      newGame.computer.token = '🤮'
+      this.human.token = '🥷🏽'
+      this.computer.token = '🤮'
     }
   }
 
   loadWins() {
     if (localStorage === null) {
-      newGame.human.wins = 0;
-      newGame.computer.wins = 0;
+      this.human.wins = 0;
+      this.computer.wins = 0;
       console.log('no storage!');
     }
   }
 
-  computerChoice() {
-    var computerChoice = Math.floor(Math.random() * 3);
-    if (computerChoice === 1) {
-      var computerIcon = 'rock'
-    } else if (computerChoice === 2) {
-      computerIcon = 'paper'
-    } else {
-      computerIcon = 'scissors'
-    }
-    console.log(computerIcon)
-  }
+  // computerChoice() {
+  //   var computerChoice = Math.floor(Math.random() * 3);
+  //   if (computerChoice === 1) {
+  //     var computerIcon = 'rock'
+  //   } else if (computerChoice === 2) {
+  //     computerIcon = 'paper'
+  //   } else {
+  //     computerIcon = 'scissors'
+  //   }
+  //   console.log(computerIcon)
+  // }
 
   determineWinner() {
     var winner;
-    if (humanChoice() === newGame.computerChoice()) {
+    if (this.human.takeTurn() === this.computer.computerChoice()) {
       winner = 'DRAW'
       console.log('It\'s a draw!!!');
       return winner
-    } else if (humanChoice() === 'rock' && newGame.computerChoice() === 'paper') {
+    } else if (this.human.takeTurn() === 'rock' && this.computer.computerChoice() === 'paper') {
       winner = 'Computer'
       console.log('Computer WINS!!!');
       return winner
-    } else if (humanChoice() === 'rock' && newGame.computerChoice() === 'scissors') {
+    } else if (this.human.takeTurn() === 'rock' && this.computer.computerChoice() === 'scissors') {
       winner = 'Human'
       console.log('Human WINS!!!');
       return winner
-    } else if (humanChoice() === 'paper' && newGame.computerChoice() === 'scissors') {
+    } else if (this.human.takeTurn() === 'paper' && this.computer.computerChoice() === 'scissors') {
       winner = 'Computer'
       console.log('Computer WINS!!!');
       return winner
-    } else if (humanChoice() === 'paper' && newGame.computerChoice() === 'rock') {
+    } else if (this.human.takeTurn() === 'paper' && this.computer.computerChoice() === 'rock') {
       winner = 'Human'
       console.log('Human WINS!!!');
       return winner
-    } else if (humanChoice() === 'scissors' && newGame.computerChoice() === 'rock') {
+    } else if (this.human.takeTurn() === 'scissors' && this.computer.computerChoice() === 'rock') {
       winner = 'Computer'
       console.log('Conmputer WINS!!!');
       return winner
-    } else if (humanChoice() === 'scissors' && newGame.computerChoice() === 'paper') {
+    } else if (this.human.takeTurn() === 'scissors' && this.computer.computerChoice() === 'paper') {
       winner = 'Human'
       console.log('Human WINS!!!');
       return winner
@@ -88,7 +88,8 @@ class Game {
   }
 
   adjustWins() {
-    determineWinner() === 'Human' ? newGame.human.wins++ : this.computer.wins++
+    // this.determineWinner() === 'DRAW' ? 
+    this.determineWinner() === 'Human' ? this.human.wins++ : this.computer.wins++
   }
 
 };
