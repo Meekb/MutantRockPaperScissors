@@ -5,8 +5,45 @@ class Game {
     this.type = 'Classic' || 'Difficult';
   }
 
+  gameType() {
+    if (event.target.id === 'classicBtn') {
+      newGame.type = 'Classic'
+    } else {
+      newGame.type = 'Difficult'
+    }
+  }
+
+  loadPlayerNames() {
+    if (newGame.type === 'Classic') {
+      newGame.human.name = 'Human';
+      newGame.computer.name = 'Machine';
+    } else {
+      newGame.human.name = 'Donatello';
+      newGame.computer.name = 'Shredder'
+    }
+  }
+
+  loadTokens() {
+    if (newGame.type === 'Classic') {
+      newGame.human.token = '🧠'
+      newGame.computer.token = '🤖'
+    } else if (newGame.type === 'Difficult') {
+      console.log('nope')
+      newGame.human.token = '🥷🏽'
+      newGame.computer.token = '🤮'
+    }
+  }
+
+  loadWins() {
+    if (localStorage === null) {
+      newGame.human.wins = 0;
+      newGame.computer.wins = 0;
+      console.log('no storage!');
+    }
+  }
+
   computerChoice() {
-    var computerChoice = Math.round(Math.random() * 3);
+    var computerChoice = Math.floor(Math.random() * 3);
     if (computerChoice === 1) {
       var computerIcon = 'rock'
     } else if (computerChoice === 2) {
@@ -16,10 +53,6 @@ class Game {
     }
     console.log(computerIcon)
   }
-
-  // humanChoice() {
-  //
-  // }
 
   determineWinner() {
     var winner;
@@ -52,6 +85,10 @@ class Game {
       console.log('Human WINS!!!');
       return winner
     }
+  }
+
+  adjustWins() {
+    determineWinner() === 'Human' ? newGame.human.wins++ : this.computer.wins++
   }
 
 };

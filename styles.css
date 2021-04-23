@@ -1,5 +1,5 @@
 * {
-  /* border: 2px solid blue; */
+  border: 2px solid blue;
   margin: 0;
   padding: 0;
   length: 100%;
@@ -122,25 +122,100 @@ h2, h4 {
   height: 33.6vh;
   margin-left: 26%;
   margin-bottom: 3vh;
+  /* border: 2px solid blue; */
 }
 
 
 img {
-  width: 15vw;
-  height: 33vh;
+  width: 12vw;
+  height: 28vh;
   padding-top: 10vh;
   padding-bottom: 24vh;
 }
 
-.game-board {
+.difficult-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  /* border: 2px solid blue; */
+}
+
+.top-row-classic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 7vh;
+  padding-top: 25vh;
+  height: 28vh;
+}
+
+.paper {
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.top-row-classic {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5vh;
+  padding-top: 18vh;
+  height: 28vh;
+  /* border: 2px solid blue; */
+}
+
+.top-row-difficult {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  margin: 3vh;
+  padding-top: 9vh;
+  height: 28vh;
+  /* border: 2px solid blue; */
+}
+
+.bottom-row-difficult {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 3vh;
+  padding-top: 5vh;
+  height: 28vh;
+}
+
+.ninja-star,
+.microphone {
+  height: 15vh;
+}
+
+.bottom-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20vh;
+  padding-top: 12vh;
+  height: 28vh;
+  /* border: 2px solid blue; */
+}
+
+.game-board,
+.difficult-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: auto;
   /* padding-top: 5vh;
   padding-left: 5vw;
   padding-right: 1vw;
   padding-left: 1vw; */
+  border: 2px solid blue;
 }
 
 .rockIcon,
