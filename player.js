@@ -6,7 +6,7 @@ class Player {
     // this.playerStats = [];
   }
 
-  takeTurn() {
+  humanTurn() {
     if (event.target.id === 'rockIcon') {
       console.log('rock')
     } else if (event.target.id === 'paperIcon') {
@@ -16,7 +16,7 @@ class Player {
     }
   }
 
-  computerChoice() {
+  computerTurn() {
     var computerChoice = Math.floor(Math.random() * 3);
     if (computerChoice === 1) {
       var computerIcon = 'rock'

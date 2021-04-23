@@ -66,12 +66,13 @@ function createGame() {
 }
 
 function test() {
-  var pick = newGame.human.takeTurn()
-  console.log(pick);
-  newGame.computer.takeTurn();
-  newGame.determineWinner();
-  newGame.adjustWins();
-  console.log(newGame);
+  var humanPick = newGame.human.humanTurn()
+  console.log(humanPick);
+  var computerPick = newGame.computer.computerTurn();
+  console.log(computerPick)
+  // newGame.determineWinner();
+  // newGame.adjustWins();
+  // console.log(newGame);
 }
 
 function changeToGameScreen() {

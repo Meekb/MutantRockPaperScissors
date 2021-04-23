@@ -56,31 +56,31 @@ class Game {
 
   determineWinner() {
     var winner;
-    if (this.human.takeTurn() === this.computer.computerChoice()) {
+      if (this.human.humanTurn() === this.computer.computerTurn()) {
       winner = 'DRAW'
       console.log('It\'s a draw!!!');
       return winner
-    } else if (this.human.takeTurn() === 'rock' && this.computer.computerChoice() === 'paper') {
+    } else if (this.human.humanTurn() === 'rock' && this.computer.computerTurn() === 'paper') {
       winner = 'Computer'
       console.log('Computer WINS!!!');
       return winner
-    } else if (this.human.takeTurn() === 'rock' && this.computer.computerChoice() === 'scissors') {
+    } else if (this.human.humanTurn() === 'rock' && this.computer.computerTurn() === 'scissors') {
       winner = 'Human'
       console.log('Human WINS!!!');
       return winner
-    } else if (this.human.takeTurn() === 'paper' && this.computer.computerChoice() === 'scissors') {
+    } else if (this.human.humanTurn() === 'paper' && this.computer.computerTurn() === 'scissors') {
       winner = 'Computer'
       console.log('Computer WINS!!!');
       return winner
-    } else if (this.human.takeTurn() === 'paper' && this.computer.computerChoice() === 'rock') {
+    } else if (this.human.humanTurn() === 'paper' && this.computer.computerTurn() === 'rock') {
       winner = 'Human'
       console.log('Human WINS!!!');
       return winner
-    } else if (this.human.takeTurn() === 'scissors' && this.computer.computerChoice() === 'rock') {
+    } else if (this.human.humanTurn() === 'scissors' && this.computer.computerTurn() === 'rock') {
       winner = 'Computer'
       console.log('Conmputer WINS!!!');
       return winner
-    } else if (this.human.takeTurn() === 'scissors' && this.computer.computerChoice() === 'paper') {
+    } else if (this.human.humanTurn() === 'scissors' && this.computer.computerTurn() === 'paper') {
       winner = 'Human'
       console.log('Human WINS!!!');
       return winner
@@ -88,7 +88,6 @@ class Game {
   }
 
   adjustWins() {
-    // this.determineWinner() === 'DRAW' ? 
     this.determineWinner() === 'Human' ? this.human.wins++ : this.computer.wins++
   }
 
