@@ -101,12 +101,14 @@ h2, h4 {
 .classic-btn {
   width: 23vw;
   height: 21.6vh;
-  margin-left: 26%;
+  margin-left: 31.5%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   /* align-items: center; */
   padding: 5%;
+  color: white;
+  background-color: #7e42f5;
 }
 
 .difficult-btn {
@@ -114,8 +116,10 @@ h2, h4 {
   margin-top: 5%;
   width: 23vw;
   height: 33.6vh;
-  margin-left: 26%;
+  margin-left: 31.5%;
   margin-bottom: 3vh;
+  color: white;
+  background-color: #7e42f5;
 }
 
 
@@ -124,6 +128,10 @@ img {
   height: 28vh;
   padding-top: 20vh;
   padding-bottom: 24vh;
+}
+
+img:hover {
+  cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:32px;'><text y='50%'>🧠</text></svg>") 16 0,auto;
 }
 
 .paper {

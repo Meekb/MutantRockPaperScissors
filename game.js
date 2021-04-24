@@ -35,12 +35,13 @@ class Game {
   }
 
   loadWins() {
-    // goal: refactor, if localStorage !== null, load the wins
-    // if (localStorage === null) {
-    //   this.human.wins = 0;
-    //   this.computer.wins = 0;
-    //   console.log('no storage!');
-    // }
+    if (localStorage === null) {
+      this.human.humanWins = 0;
+      this.computer.compWins = 0;
+      console.log('no storage!');
+    } else {
+      this.human.retrieveWinsFromStorage();
+    }
   }
 
   checkHumanWeapon() {
@@ -49,7 +50,7 @@ class Game {
   }
 
   computerTurn() {
-    var randomIndex = Math.floor(Math.random() * 3);
+    var randomIndex = Math.floor(Math.random() * 2);
     if (randomIndex === 0) {
       this.randomWeapon = 'rock'
       this.computer.weapon = undefined;
@@ -63,7 +64,7 @@ class Game {
     console.log(this.randomWeapon);
   }
 
-  determineWinner() {
+  determineClassicWinner() {
     var message;
     if (this.human.weapon === this.randomWeapon) {
       message = 'NOBODY WON...'
@@ -86,6 +87,16 @@ class Game {
     } else if (this.human.weapon === 'scissors' && this.randomWeapon === 'paper') {
       message = 'human WINS!'
       this.gameWinner = 'Human'
+    }
+  }
+
+  winCount () {
+    if (this.gameWinner === 'Computer') {
+      this.computer.compWins++
+      this.computer.saveWinsToStorage()
+    } else if (this.gameWinner === 'Human') {
+      this.human.humanWins++
+      this.human.saveWinsToStorage();
     }
   }
 

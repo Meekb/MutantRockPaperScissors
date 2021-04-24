@@ -9,7 +9,7 @@
     <section class="player-info">
       <p class="icon">🧠👤</p><br>
       <p>HUMAN</p><br>
-      <p id="humanWinCounter">WINS: 0</p><br>
+      <p>WINS:<span id="humanWinCounter"></span></p><br>
     </section>
   </aside>
   <main class="main-container">
@@ -27,15 +27,15 @@
     </article>
       <div class="top-row-classic top-row-difficult hidden" id="topRowIcons">
         <section class="rock">
-          <img src="assets/black-and-white-rocks.png" alt="rocks-icon" id="rockIcon">
+          <img src="assets/black-and-white-rocks.png" alt="rocks-icon" class="classic-icon" id="rockIcon">
           <img src="assets/black-and-white-rocks.png" alt="rocks-icon" class="comp-rock hidden" id="rockIconComp">
         </section>
         <section class="paper">
-          <img src="assets/black-and-white-paper.png" alt="paper-icon" id="paperIcon">
+          <img src="assets/black-and-white-paper.png" alt="paper-icon" class="classic-icon" id="paperIcon">
           <img src="assets/black-and-white-paper.png" alt="paper-icon" class="comp-paper hidden" id="paperIconComp">
         </section>
         <section class="scissors">
-          <img src="assets/black-and-white-scissors.png" alt="scissors-icon" id="scissorsIcon">
+          <img src="assets/black-and-white-scissors.png" alt="scissors-icon" class="classic-icon" id="scissorsIcon">
           <img src="assets/black-and-white-scissors.png" alt="scissors-icon" class="comp-scissors hidden" id="scissorsIconComp">
         </section>
         <section class="diff turtle">
@@ -72,7 +72,7 @@
     <section class="player-info">
       <p class="icon">🦾🤖</p><br>
       <p>MACHINE</p><br>
-      <p>WINS: 0</p><br>
+      <p>WINS:<span id="compWinCounter"></span></p><br>
     </section>
   </aside>
   <script type="text/javascript" src="player.js"></script>
