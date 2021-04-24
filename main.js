@@ -35,7 +35,7 @@ var newGame;
 // EVENT LISTENERS
 classicBtn.addEventListener('click', startClassicGame);
 difficultBtn.addEventListener('click', startDifficultGame);
-classicListenArea.addEventListener('click', test);
+classicListenArea.addEventListener('click', classicWinSequence);
 
 // EVENT HANDLERS
 
@@ -58,20 +58,21 @@ function startDifficultGame() {
   newGame.loadTokens();
   newGame.loadWins();
   changeToGameScreen();
+  // console.log(newGame);
+}
+
+function classicWinSequence() {
+  newGame.computerTurn();
+  newGame.checkHumanWeapon();
+  newGame.determineWinner();
+  disableListener();
+  changeToWinnerText();
+  displayIconsPicked();
   console.log(newGame);
 }
 
 function createGame() {
   newGame = new Game();
-}
-
-function test() {
-  var pick = newGame.human.takeTurn()
-  console.log(pick);
-  newGame.computer.takeTurn();
-  newGame.determineWinner();
-  newGame.adjustWins();
-  console.log(newGame);
 }
 
 function changeToGameScreen() {
@@ -87,13 +88,57 @@ function changeToGameScreen() {
   }
 }
 
+function displayIconsPicked() {
+  showHumanIcon();
+  showCompIcon();
+}
+
+function showHumanIcon() {
+  if (event.target.id === 'rockIcon') {
+    hideIconShells(paper, scissors)
+  } else if (event.target.id === 'paperIcon') {
+    hideIconShells(rock, scissors);
+  } else {
+    hideIconShells(rock, paper);
+  }
+}
+
+function showCompIcon() {
+  if (newGame.randomWeapon === 'rock') {
+    unhideElement(compRock);
+  } else if (newGame.randomWeapon === 'paper') {
+    unhideElement(compPaper);
+  } else {
+    unhideElement(compScissors);
+  }
+}
+
+function disableListener() {
+  classicListenArea.removeEventListener('click', classicWinSequence);
+}
+
 function changeToPickText() {
   chooseWinText.innerText = '🧠 Human Pick Your Weapon 🧠'
+}
+
+function changeToWinnerText() {
+  if (newGame.gameWinner === 'DRAW') {
+    chooseText.innerText = '😬 Sorry, It Was A Draw! 😬'
+  } else if (newGame.gameWinner === 'Computer') {
+    chooseText.innerText = '🤖 Machine Won This Round! 🤖'
+  } else {
+    chooseText.innerText = '🧠  Hooray, Wow Human! 🧠'
+  }
 }
 
 // toggle and hide functions
 function hideElement(element) {
   element.classList.toggle('hidden');
+}
+
+function hideIconShells(icon1, icon2) {
+  icon1.classList.toggle('hidden');
+  icon2.classList.toggle('hidden');
 }
 
 function unhideElement(element) {

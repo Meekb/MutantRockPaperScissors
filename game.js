@@ -3,6 +3,7 @@ class Game {
     this.human = new Player()
     this.computer = new Player();
     this.type = 'Classic' || 'Difficult';
+    this.randomWeapon = '';
   }
 
   gameType() {
@@ -28,68 +29,65 @@ class Game {
       this.human.token = '🧠'
       this.computer.token = '🤖'
     } else if (this.type === 'Difficult') {
-      console.log('nope')
       this.human.token = '🥷🏽'
       this.computer.token = '🤮'
     }
   }
 
   loadWins() {
-    if (localStorage === null) {
-      this.human.wins = 0;
-      this.computer.wins = 0;
-      console.log('no storage!');
-    }
+    // goal: refactor, if localStorage !== null, load the wins
+    // if (localStorage === null) {
+    //   this.human.wins = 0;
+    //   this.computer.wins = 0;
+    //   console.log('no storage!');
+    // }
   }
 
-  // computerChoice() {
-  //   var computerChoice = Math.floor(Math.random() * 3);
-  //   if (computerChoice === 1) {
-  //     var computerIcon = 'rock'
-  //   } else if (computerChoice === 2) {
-  //     computerIcon = 'paper'
-  //   } else {
-  //     computerIcon = 'scissors'
-  //   }
-  //   console.log(computerIcon)
-  // }
+  checkHumanWeapon() {
+    this.human.takeTurn();
+    console.log(this.human.weapon);
+  }
+
+  computerTurn() {
+    var randomIndex = Math.floor(Math.random() * 3);
+    if (randomIndex === 0) {
+      this.randomWeapon = 'rock'
+      this.computer.weapon = undefined;
+    } else if (randomIndex === 1) {
+      this.randomWeapon = 'paper';
+      this.computer.weapon = undefined;
+    } else {
+      this.randomWeapon = 'scissors'
+      this.computer.weapon = undefined;
+    }
+    console.log(this.randomWeapon);
+  }
 
   determineWinner() {
-    var winner;
-    if (this.human.takeTurn() === this.computer.computerChoice()) {
-      winner = 'DRAW'
-      console.log('It\'s a draw!!!');
-      return winner
-    } else if (this.human.takeTurn() === 'rock' && this.computer.computerChoice() === 'paper') {
-      winner = 'Computer'
-      console.log('Computer WINS!!!');
-      return winner
-    } else if (this.human.takeTurn() === 'rock' && this.computer.computerChoice() === 'scissors') {
-      winner = 'Human'
-      console.log('Human WINS!!!');
-      return winner
-    } else if (this.human.takeTurn() === 'paper' && this.computer.computerChoice() === 'scissors') {
-      winner = 'Computer'
-      console.log('Computer WINS!!!');
-      return winner
-    } else if (this.human.takeTurn() === 'paper' && this.computer.computerChoice() === 'rock') {
-      winner = 'Human'
-      console.log('Human WINS!!!');
-      return winner
-    } else if (this.human.takeTurn() === 'scissors' && this.computer.computerChoice() === 'rock') {
-      winner = 'Computer'
-      console.log('Conmputer WINS!!!');
-      return winner
-    } else if (this.human.takeTurn() === 'scissors' && this.computer.computerChoice() === 'paper') {
-      winner = 'Human'
-      console.log('Human WINS!!!');
-      return winner
+    var message;
+    if (this.human.weapon === this.randomWeapon) {
+      message = 'NOBODY WON...'
+      this.gameWinner = 'DRAW'
+    } else if (this.human.weapon === 'rock' && this.randomWeapon === 'paper') {
+      message = 'computer WINS!'
+      this.gameWinner = 'Computer'
+    } else if (this.human.weapon === 'rock' && this.randomWeapon === 'scissors') {
+      message = 'human WINS!'
+      this.gameWinner = 'Human'
+    } else if (this.human.weapon === 'paper' && this.randomWeapon === 'scissors') {
+      message = 'computer WINS!'
+      this.gameWinner = 'Computer'
+    } else if (this.human.weapon === 'paper' && this.randomWeapon === 'rock') {
+      message = 'human WINS!'
+      this.gameWinner = 'Human'
+    } else if (this.human.weapon === 'scissors' && this.randomWeapon === 'rock') {
+      message = 'computer WINS!'
+      this.gameWinner = 'Computer'
+    } else if (this.human.weapon === 'scissors' && this.randomWeapon === 'paper') {
+      message = 'human WINS!'
+      this.gameWinner = 'Human'
     }
   }
 
-  adjustWins() {
-    // this.determineWinner() === 'DRAW' ? 
-    this.determineWinner() === 'Human' ? this.human.wins++ : this.computer.wins++
-  }
 
 };

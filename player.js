@@ -3,29 +3,27 @@ class Player {
     this.name = name;
     this.token = token;
     this.wins = 0;
-    // this.playerStats = [];
+    if (this.name === 'Human') {
+      this.weapon = 'rock' || 'paper' || 'scissors'
+    }
   }
 
   takeTurn() {
     if (event.target.id === 'rockIcon') {
-      console.log('rock')
+      this.weapon = 'rock'
     } else if (event.target.id === 'paperIcon') {
-      console.log('paper')
+      this.weapon = 'paper'
     } else {
-      console.log('scissors')
+      this.weapon = 'scissors'
     }
   }
 
-  computerChoice() {
-    var computerChoice = Math.floor(Math.random() * 3);
-    if (computerChoice === 1) {
-      var computerIcon = 'rock'
-    } else if (computerChoice === 2) {
-      computerIcon = 'paper'
-    } else {
-      computerIcon = 'scissors'
-    }
-    console.log(computerIcon)
+  incrementHumanWins() {
+    this.human.wins++
+  }
+
+  incrementCompWins() {
+    this.computer.wins++
   }
 
   saveWinsToStorage() {
