@@ -62,11 +62,12 @@ function startDifficultGame() {
 }
 
 function classicWinSequence() {
-  newGame.checkHumanWeapon();
   newGame.computerTurn();
+  newGame.checkHumanWeapon();
   newGame.determineWinner();
+  disableListener();
   changeToWinnerText();
-  // newGame.adjustWins();
+  displayIconsPicked();
   console.log(newGame);
 }
 
@@ -87,23 +88,57 @@ function changeToGameScreen() {
   }
 }
 
+function displayIconsPicked() {
+  showHumanIcon();
+  showCompIcon();
+}
+
+function showHumanIcon() {
+  if (event.target.id === 'rockIcon') {
+    hideIconShells(paper, scissors)
+  } else if (event.target.id === 'paperIcon') {
+    hideIconShells(rock, scissors);
+  } else {
+    hideIconShells(rock, paper);
+  }
+}
+
+function showCompIcon() {
+  if (newGame.randomWeapon === 'rock') {
+    unhideElement(compRock);
+  } else if (newGame.randomWeapon === 'paper') {
+    unhideElement(compPaper);
+  } else {
+    unhideElement(compScissors);
+  }
+}
+
+function disableListener() {
+  classicListenArea.removeEventListener('click', classicWinSequence);
+}
+
 function changeToPickText() {
   chooseWinText.innerText = '🧠 Human Pick Your Weapon 🧠'
 }
 
 function changeToWinnerText() {
-  if (newGame.determineWinner() === 'DRAW') {
+  if (newGame.gameWinner === 'DRAW') {
     chooseText.innerText = '😬 Sorry, It Was A Draw! 😬'
-  } else if (newGame.determineWinner() === 'Computer') {
+  } else if (newGame.gameWinner === 'Computer') {
     chooseText.innerText = '🤖 Machine Won This Round! 🤖'
   } else {
-    chooseText.innerText = '🧠  Hooray, You Beat The Machine! 🧠'
+    chooseText.innerText = '🧠  Hooray, Wow Human! 🧠'
   }
 }
 
 // toggle and hide functions
 function hideElement(element) {
   element.classList.toggle('hidden');
+}
+
+function hideIconShells(icon1, icon2) {
+  icon1.classList.toggle('hidden');
+  icon2.classList.toggle('hidden');
 }
 
 function unhideElement(element) {

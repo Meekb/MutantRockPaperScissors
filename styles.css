@@ -23,7 +23,7 @@ header {
 }
 
 .main-container {
-  width: 70%;
+  width: 74%;
   background-color: #a1aec4;
   height: auto;
   border-left: 2px solid black;
@@ -72,7 +72,7 @@ h2, h4 {
   justify-content: flex-start;
   align-items: center;
   padding-top: 2%;
-  width: 32vw;
+  width: 22vw;
   height: auto;
   background-color: #97aac9;
   padding-top: 8%;

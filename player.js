@@ -2,8 +2,10 @@ class Player {
   constructor(name, token) {
     this.name = name;
     this.token = token;
-    this.weapon = 'rock' || 'paper' || 'scissors';
     this.wins = 0;
+    if (this.name === 'Human') {
+      this.weapon = 'rock' || 'paper' || 'scissors'
+    }
   }
 
   takeTurn() {

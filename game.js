@@ -3,6 +3,7 @@ class Game {
     this.human = new Player()
     this.computer = new Player();
     this.type = 'Classic' || 'Difficult';
+    this.randomWeapon = '';
   }
 
   gameType() {
@@ -48,33 +49,43 @@ class Game {
   }
 
   computerTurn() {
-    var weapon = Math.floor(Math.random() * 3);
-    var pick;
-    if (weapon === 0) {
-      pick = 'rock'
-    } else if (weapon === 1) {
-      pick = 'paper';
+    var randomIndex = Math.floor(Math.random() * 3);
+    if (randomIndex === 0) {
+      this.randomWeapon = 'rock'
+      this.computer.weapon = undefined;
+    } else if (randomIndex === 1) {
+      this.randomWeapon = 'paper';
+      this.computer.weapon = undefined;
     } else {
-      pick = 'scissors'
+      this.randomWeapon = 'scissors'
+      this.computer.weapon = undefined;
     }
-    return pick;
+    console.log(this.randomWeapon);
   }
 
   determineWinner() {
-    if (this.human.humanWeapon === this.computerTurn()) {
-      console.log('NOBODY WON...')
-    } else if (this.human.humanWeapon === 'rock' && this.computerTurn() === 'paper') {
-      this.computer.incrementCompWins();
-    } else if (this.human.humanWeapon === 'rock' && this.computerTurn() === 'scissors') {
-      this.human.incrementHumanWins();
-    } else if (this.human.humanWeapon === 'paper' && this.computerTurn() === 'scissors') {
-      this.computer.incrementCompWins();
-    } else if (this.human.humanWeapon === 'paper' && this.computerTurn() === 'rock') {
-      this.human.incrementHumanWins();
-    } else if (this.human.humanWeapon === 'scissors' && this.computerTurn() === 'rock') {
-      this.computer.incrementCompWins();
-    } else if (this.human.humanWeapon === 'scissors' && this.computerTurn() === 'paper') {
-      this.human.incrementHumanWins();
+    var message;
+    if (this.human.weapon === this.randomWeapon) {
+      message = 'NOBODY WON...'
+      this.gameWinner = 'DRAW'
+    } else if (this.human.weapon === 'rock' && this.randomWeapon === 'paper') {
+      message = 'computer WINS!'
+      this.gameWinner = 'Computer'
+    } else if (this.human.weapon === 'rock' && this.randomWeapon === 'scissors') {
+      message = 'human WINS!'
+      this.gameWinner = 'Human'
+    } else if (this.human.weapon === 'paper' && this.randomWeapon === 'scissors') {
+      message = 'computer WINS!'
+      this.gameWinner = 'Computer'
+    } else if (this.human.weapon === 'paper' && this.randomWeapon === 'rock') {
+      message = 'human WINS!'
+      this.gameWinner = 'Human'
+    } else if (this.human.weapon === 'scissors' && this.randomWeapon === 'rock') {
+      message = 'computer WINS!'
+      this.gameWinner = 'Computer'
+    } else if (this.human.weapon === 'scissors' && this.randomWeapon === 'paper') {
+      message = 'human WINS!'
+      this.gameWinner = 'Human'
     }
   }
 
