@@ -35,36 +35,42 @@ class Game {
   }
 
   loadWins() {
-    if (localStorage === null) {
-      this.human.wins = 0;
-      this.computer.wins = 0;
-      // console.log('no storage!');
-    }
+    // goal: refactor, if localStorage !== null, load the wins
+    // if (localStorage === null) {
+    //   this.human.wins = 0;
+    //   this.computer.wins = 0;
+    //   console.log('no storage!');
+    // }
+  }
+
+  computerTurn() {
+    var computerChoice = Math.floor(Math.random() * 3);
+    console.log(computerChoice);
+    // return computerChoice
   }
 
   determineWinner() {
     var winner;
-      if (this.human.humanTurn() === 'rock' && this.computer.computerTurn() === 'paper') {
-      winner = 'Computer'
-    } else if (this.human.humanTurn() === 'rock' && this.computer.computerTurn() === 'scissors') {
-      winner = 'Human'
-    } else if (this.human.humanTurn() === 'paper' && this.computer.computerTurn() === 'scissors') {
-      winner = 'Computer'
-    } else if (this.human.humanTurn() === 'paper' && this.computer.computerTurn() === 'rock') {
-      winner = 'Human'
-    } else if (this.human.humanTurn() === 'scissors' && this.computer.computerTurn() === 'rock') {
-      winner = 'Computer'
-    } else if (this.human.humanTurn() === 'scissors' && this.computer.computerTurn() === 'paper') {
-      winner = 'Human'
-    } else {
+    var compPick = this.computerTurn()
+    var humanPick = this.human.evaluateHumanTurn();
+    if (humanPick === compPick) {
       winner = 'DRAW'
-      // console.log('It\'s a draw!!!');
+    } else if (humanPick === 'rock' && compPick === 1) {
+      winner = 'Computer'
+    } else if (humanPick === 'rock' && compPick === 2) {
+      winner = 'Human'
+    } else if (humanPick === 'paper' && compPick === 2) {
+      winner = 'Computer'
+    } else if (humanPick === 'paper' && compPick === 0) {
+      winner = 'Human'
+    } else if (humanPick === 'scissors' && compPick === 0) {
+      winner = 'Computer'
+    } else if (humanPick === 'scissors' && compPick === 1) {
+      winner = 'Human'
     }
-    return winner
+    console.log(winner);
+    return
   }
 
-  adjustWins() {
-    this.determineWinner() === 'Human' ? this.human.wins++ : this.computer.wins++
-  }
 
 };

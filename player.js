@@ -5,26 +5,20 @@ class Player {
     this.wins = 0;
   }
 
-  humanTurn() {
+  evaluateHumanTurn() {
+    var humanPick;
     if (event.target.id === 'rockIcon') {
-      return 'rock'
+      humanPick = 'rock'
     } else if (event.target.id === 'paperIcon') {
-      return 'paper'
+      humanPick = 'paper'
     } else {
-      return 'scissors'
+      humanPick = 'scissors'
     }
+    console.log('running humanTurn() now --->', humanPick)
   }
 
-  computerTurn() {
-    var computerChoice = Math.floor(Math.random() * 3);
-    if (computerChoice === 1) {
-      var computerIcon = 'rock'
-    } else if (computerChoice === 2) {
-      computerIcon = 'paper'
-    } else {
-      computerIcon = 'scissors'
-    }
-    return computerIcon
+  adjustWins() {
+    this.determineWinner() === 'Human' ? this.human.wins++ : this.computer.wins++
   }
 
   saveWinsToStorage() {

@@ -35,7 +35,7 @@ var newGame;
 // EVENT LISTENERS
 classicBtn.addEventListener('click', startClassicGame);
 difficultBtn.addEventListener('click', startDifficultGame);
-classicListenArea.addEventListener('click', winGame);
+classicListenArea.addEventListener('click', winSequence);
 
 // EVENT HANDLERS
 
@@ -48,7 +48,7 @@ function startClassicGame() {
   newGame.loadWins();
   changeToGameScreen();
   changeToPickText();
-  // console.log(newGame);
+  console.log(newGame);
 }
 
 function startDifficultGame() {
@@ -61,18 +61,16 @@ function startDifficultGame() {
   // console.log(newGame);
 }
 
-function createGame() {
-  newGame = new Game();
-}
-
-function winGame() {
-  console.log('comp', newGame.computer.computerTurn());
-  var humanPick = newGame.human.humanTurn()
-  console.log('human', humanPick)
+function winSequence() {
+  // newGame.computerTurn();
   newGame.determineWinner();
   changeToWinnerText();
   // newGame.adjustWins();
-  // console.log(newGame);
+  console.log(newGame);
+}
+
+function createGame() {
+  newGame = new Game();
 }
 
 function changeToGameScreen() {
