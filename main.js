@@ -4,6 +4,8 @@ var chooseScreen = document.getElementById('chooseContainer');
 var difficultGame = document.getElementById('difficultGame');
 var classicGame = document.getElementById('classicGame');
 var classicListenArea = document.getElementById('topRowIcons');
+var humanWins = document.getElementById('humanWinCounter');
+var compWins = document.getElementById('compWinCounter');
 
   //buttons
 var classicBtn = document.getElementById('classicBtn');
@@ -13,6 +15,7 @@ var difficultBtn = document.getElementById('difficultBtn');
 var chooseWinText = document.getElementById('chooseText');
 
   // icons
+var classicIcons = document.querySelectorAll('.classic');
 var rock = document.getElementById('rockIcon');
 var paper = document.getElementById('paperIcon');
 var scissors = document.getElementById('scissorsIcon');
@@ -58,16 +61,20 @@ function startDifficultGame() {
   newGame.loadTokens();
   newGame.loadWins();
   changeToGameScreen();
+  updateWinCounts();
   // console.log(newGame);
 }
 
 function classicWinSequence() {
   newGame.computerTurn();
   newGame.checkHumanWeapon();
-  newGame.determineWinner();
+  newGame.determineClassicWinner();
+  newGame.winCount();
   disableListener();
   changeToWinnerText();
   displayIconsPicked();
+  updateWinCounts();
+  // window.setTimeout(resetGame(), 3000);
   console.log(newGame);
 }
 
@@ -91,6 +98,22 @@ function changeToGameScreen() {
 function displayIconsPicked() {
   showHumanIcon();
   showCompIcon();
+}
+
+function updateWinCounts() {
+  humanWins.innerText = newGame.human.humanWins;
+  compWins.innerText = newGame.computer.compWins;
+}
+
+function resetGame() {
+  changeToPickText();
+  resetClassicIcons();
+}
+
+function resetClassicIcons() {
+  for (var i = 0; i < classicIcons.length; i++) {
+    classicIcons[i].classList.toggle('hidden')
+  }
 }
 
 function showHumanIcon() {
@@ -118,7 +141,7 @@ function disableListener() {
 }
 
 function changeToPickText() {
-  chooseWinText.innerText = '🧠 Human Pick Your Weapon 🧠'
+  chooseWinText.innerText = '👇 Human Pick Your Weapon 👇'
 }
 
 function changeToWinnerText() {
@@ -127,7 +150,7 @@ function changeToWinnerText() {
   } else if (newGame.gameWinner === 'Computer') {
     chooseText.innerText = '🤖 Machine Won This Round! 🤖'
   } else {
-    chooseText.innerText = '🧠  Hooray, Wow Human! 🧠'
+    chooseText.innerText = '🔥  Hooray, Much Human! 🔥'
   }
 }
 
@@ -141,6 +164,11 @@ function hideIconShells(icon1, icon2) {
   icon2.classList.toggle('hidden');
 }
 
+function unhideIconShells(icon1, icon2) {
+  icon1.classList.toggle('hidden');
+  icon2.classList.toggle('hidden');
+}
+
 function unhideElement(element) {
   element.classList.toggle('hidden');
 }
@@ -150,6 +178,7 @@ function toggleClassicIcons(icon1, icon2, icon3) {
   icon2.classList.toggle('hidden');
   icon3.classList.toggle('hidden');
 }
+
 function toggleDiffIcons(icon1, icon2, icon3, icon4, icon5) {
   icon1.classList.toggle('hidden');
   icon2.classList.toggle('hidden');
