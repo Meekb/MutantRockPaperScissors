@@ -35,7 +35,7 @@ var newGame;
 // EVENT LISTENERS
 classicBtn.addEventListener('click', startClassicGame);
 difficultBtn.addEventListener('click', startDifficultGame);
-classicListenArea.addEventListener('click', winSequence);
+classicListenArea.addEventListener('click', classicWinSequence);
 
 // EVENT HANDLERS
 
@@ -61,8 +61,9 @@ function startDifficultGame() {
   // console.log(newGame);
 }
 
-function winSequence() {
-  // newGame.computerTurn();
+function classicWinSequence() {
+  newGame.checkHumanWeapon();
+  newGame.computerTurn();
   newGame.determineWinner();
   changeToWinnerText();
   // newGame.adjustWins();

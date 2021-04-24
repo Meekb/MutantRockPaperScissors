@@ -2,23 +2,26 @@ class Player {
   constructor(name, token) {
     this.name = name;
     this.token = token;
+    this.weapon = 'rock' || 'paper' || 'scissors';
     this.wins = 0;
   }
 
-  evaluateHumanTurn() {
-    var humanPick;
+  takeTurn() {
     if (event.target.id === 'rockIcon') {
-      humanPick = 'rock'
+      this.weapon = 'rock'
     } else if (event.target.id === 'paperIcon') {
-      humanPick = 'paper'
+      this.weapon = 'paper'
     } else {
-      humanPick = 'scissors'
+      this.weapon = 'scissors'
     }
-    console.log('running humanTurn() now --->', humanPick)
   }
 
-  adjustWins() {
-    this.determineWinner() === 'Human' ? this.human.wins++ : this.computer.wins++
+  incrementHumanWins() {
+    this.human.wins++
+  }
+
+  incrementCompWins() {
+    this.computer.wins++
   }
 
   saveWinsToStorage() {

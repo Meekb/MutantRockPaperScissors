@@ -28,7 +28,6 @@ class Game {
       this.human.token = '🧠'
       this.computer.token = '🤖'
     } else if (this.type === 'Difficult') {
-      // console.log('nope')
       this.human.token = '🥷🏽'
       this.computer.token = '🤮'
     }
@@ -43,33 +42,40 @@ class Game {
     // }
   }
 
+  checkHumanWeapon() {
+    this.human.takeTurn();
+    console.log(this.human.weapon);
+  }
+
   computerTurn() {
-    var computerChoice = Math.floor(Math.random() * 3);
-    console.log(computerChoice);
-    // return computerChoice
+    var weapon = Math.floor(Math.random() * 3);
+    var pick;
+    if (weapon === 0) {
+      pick = 'rock'
+    } else if (weapon === 1) {
+      pick = 'paper';
+    } else {
+      pick = 'scissors'
+    }
+    return pick;
   }
 
   determineWinner() {
-    var winner;
-    var compPick = this.computerTurn()
-    var humanPick = this.human.evaluateHumanTurn();
-    if (humanPick === compPick) {
-      winner = 'DRAW'
-    } else if (humanPick === 'rock' && compPick === 1) {
-      winner = 'Computer'
-    } else if (humanPick === 'rock' && compPick === 2) {
-      winner = 'Human'
-    } else if (humanPick === 'paper' && compPick === 2) {
-      winner = 'Computer'
-    } else if (humanPick === 'paper' && compPick === 0) {
-      winner = 'Human'
-    } else if (humanPick === 'scissors' && compPick === 0) {
-      winner = 'Computer'
-    } else if (humanPick === 'scissors' && compPick === 1) {
-      winner = 'Human'
+    if (this.human.humanWeapon === this.computerTurn()) {
+      console.log('NOBODY WON...')
+    } else if (this.human.humanWeapon === 'rock' && this.computerTurn() === 'paper') {
+      this.computer.incrementCompWins();
+    } else if (this.human.humanWeapon === 'rock' && this.computerTurn() === 'scissors') {
+      this.human.incrementHumanWins();
+    } else if (this.human.humanWeapon === 'paper' && this.computerTurn() === 'scissors') {
+      this.computer.incrementCompWins();
+    } else if (this.human.humanWeapon === 'paper' && this.computerTurn() === 'rock') {
+      this.human.incrementHumanWins();
+    } else if (this.human.humanWeapon === 'scissors' && this.computerTurn() === 'rock') {
+      this.computer.incrementCompWins();
+    } else if (this.human.humanWeapon === 'scissors' && this.computerTurn() === 'paper') {
+      this.human.incrementHumanWins();
     }
-    console.log(winner);
-    return
   }
 
 
