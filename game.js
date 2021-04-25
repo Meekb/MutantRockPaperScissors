@@ -35,16 +35,30 @@ class Game {
   }
 
   loadWins() {
-    if (localStorage === null) {
-      this.human.humanWins = 0;
-      this.computer.compWins = 0;
+    if (!localStorage) {
+      this.human.wins = 0;
+      this.computer.wins = 0;
     } else {
-      var humanWins = this.human.retrieveWinsFromStorage();
-      var compWins = this.computer.retrieveWinsFromStorage();
-      this.human.humanWins = humanWins;
-      this.computer.compWins = compWins;
+      this.human.retrieveWinsFromStorage();
+      this.computer.retrieveWinsFromStorage();
     }
   }
+
+  displayableHumanWin() {
+    var hw = this.human.wins.toString();
+    return hw;
+  }
+
+  displayableCompWin() {
+    var cw = this.computer.wins.toString();
+    return cw;
+  }
+  //     var humanWins = this.human.retrieveWinsFromStorage();
+  //     var compWins = this.computer.retrieveWinsFromStorage();
+  //     this.human.humanWins = humanWins;
+  //     this.computer.compWins = compWins;
+  //   }
+  // }
 
   checkHumanWeapon() {
     this.human.takeTurn();
@@ -67,40 +81,37 @@ class Game {
   }
 
   determineClassicWinner() {
-    var message;
     if (this.human.weapon === this.randomWeapon) {
-      message = 'NOBODY WON...'
       this.gameWinner = 'DRAW'
+      this.computer.drawScenarioWins();
+      this.human.drawScenarioWins();
+      this.human.saveWinsToStorage()
+      this.computer.saveWinsToStorage();
     } else if (this.human.weapon === 'rock' && this.randomWeapon === 'paper') {
-      message = 'computer WINS!'
       this.gameWinner = 'Computer'
+      this.computer.winIncrease()
+      this.computer.winIncrease()
     } else if (this.human.weapon === 'rock' && this.randomWeapon === 'scissors') {
-      message = 'human WINS!'
       this.gameWinner = 'Human'
+      this.human.winIncrease();
+      this.human.saveWinsToStorage()
     } else if (this.human.weapon === 'paper' && this.randomWeapon === 'scissors') {
-      message = 'computer WINS!'
       this.gameWinner = 'Computer'
+      this.computer.winIncrease()
+      this.computer.winIncrease()
     } else if (this.human.weapon === 'paper' && this.randomWeapon === 'rock') {
-      message = 'human WINS!'
       this.gameWinner = 'Human'
+      this.human.winIncrease();
+      this.human.saveWinsToStorage()
     } else if (this.human.weapon === 'scissors' && this.randomWeapon === 'rock') {
-      message = 'computer WINS!'
       this.gameWinner = 'Computer'
-    } else if (this.human.weapon === 'scissors' && this.randomWeapon === 'paper') {
-      message = 'human WINS!'
-      this.gameWinner = 'Human'
-    }
-  }
-
-  winCount () {
-    if (this.gameWinner === 'Computer') {
-      this.computer.compWins++
+      this.computer.winIncrease()
       this.computer.saveWinsToStorage()
-    } else if (this.gameWinner === 'Human') {
-      this.human.humanWins++
-      this.human.saveWinsToStorage();
+    } else if (this.human.weapon === 'scissors' && this.randomWeapon === 'paper') {
+      this.gameWinner = 'Human'
+      this.human.winIncrease();
+      this.human.saveWinsToStorage()
     }
   }
-
 
 };

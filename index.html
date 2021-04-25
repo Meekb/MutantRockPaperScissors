@@ -5,7 +5,7 @@
     <title>ROCK PAPER SCISSORS</title>
   </head>
   <body class="whole-page">
-    <aside class="human">
+    <aside class="human easy">
       <section class="player-info">
         <p class="icon">🧠👤</p><br>
         <p>HUMAN</p><br>
@@ -21,57 +21,55 @@
         <h2 class="choose" id="chooseText">Choose your game!</h2>
       </header>
       <article class="choose-area" id="chooseContainer">
-        <section class="choose-game-btns" id="changeGameBtns">
-          <button type="button" name="classic" class="classic-btn nav" id="classicBtn">CLASSIC:<br>ROCK > SCISSORS<br>PAPER > ROCK<br>SCISSORS > PAPER</button>
-          <button type="button" name="difficult" class="difficult-btn nav" id="difficultBtn">DIFFICULT:<br>TURTLE > PIZZA & MICROPHONE<br>SEWER > TURTLE & NINJA STAR<br>PIZZA > SEWER & MICROPHONE<br> MICROPHONE > SEWER & NINJA STAR<br>NINJA STAR > PIZZA & TURTLE<br></button>
+        <section class="choose-game-btn-section nav" id="changeGameBtns">
+          <button type="button" name="classic" class="classic-btn " id="classicBtn">CLASSIC:<br>ROCK > SCISSORS<br>PAPER > ROCK<br>SCISSORS > PAPER</button>
+          <button type="button" name="difficult" class="difficult-btn" id="difficultBtn">DIFFICULT:<br>TURTLE > PIZZA & MICROPHONE<br>SEWER > TURTLE & NINJA STAR<br>PIZZA > SEWER & MICROPHONE<br> MICROPHONE > SEWER & NINJA STAR<br>NINJA STAR > PIZZA & TURTLE<br></button>
         </section>
       </article>
-      <article class="classic-game-board" id="classicBoard">
-        <section class="classic-area" id="classicGameArea">
-        <div class="top-row-classic top-row-difficult hidden" id="topRowIcons">
+      <article class="classic-game-board hidden" id="classicBoard">
+        <div class="top-row-classic" id="topRowIcons">
           <section class="rock">
-            <img src="assets/black-and-white-rocks.png" alt="rocks-icon" class="classic-icon" id="rockIcon">
-            <img src="assets/black-and-white-rocks.png" alt="rocks-icon" class="classic-icon comp-rock hidden" id="rockIconComp">
+            <img src="assets/black-and-white-rocks.png" alt="rocks-icon" class="classic-icon ctri" id="rockIcon">
+            <img src="assets/black-and-white-rocks.png" alt="rocks-icon" class="classic-icon comp comp-rock hidden" id="rockIconComp">
           </section>
           <section class="paper">
-            <img src="assets/black-and-white-paper.png" alt="paper-icon" class="classic-icon" id="paperIcon">
-            <img src="assets/black-and-white-paper.png" alt="paper-icon" class="classic-icon comp-paper hidden" id="paperIconComp">
+            <img src="assets/black-and-white-paper.png" alt="paper-icon" class="classic-icon ctri" id="paperIcon">
+            <img src="assets/black-and-white-paper.png" alt="paper-icon" class="classic-icon comp comp-paper hidden" id="paperIconComp">
           </section>
           <section class="scissors">
-            <img src="assets/black-and-white-scissors.png" alt="scissors-icon" class="classic-icon" id="scissorsIcon">
-            <img src="assets/black-and-white-scissors.png" alt="scissors-icon" class="classic-icon comp-scissors hidden" id="scissorsIconComp">
+            <img src="assets/black-and-white-scissors.png" alt="scissors-icon" class="classic-icon ctri" id="scissorsIcon">
+            <img src="assets/black-and-white-scissors.png" alt="scissors-icon" class="classic-icon comp comp-scissors hidden" id="scissorsIconComp">
           </section>
-        </section>
+        </div>
       </article>
-      <article class="difficult-game-board" id="difficultBoard">
-        <section class="diff-area-only" id="difficultGameArea">
-        <div class="top-row-difficult hidden" id="topRowIcons">
+      <article class="difficult-game-board hidden" id="difficultBoard">
+        <div class="top-row-diff" id="diffTopRowIcons">
           <section class="diff turtle">
-            <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" id="turtleIcon">
+            <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" class="diff-icon" id="turtleIcon">
             <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" class="comp-turtle hidden" id="turtleIconComp">
           </section>
           <section class="diff pizza">
-            <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon" id="pizzaIcon">
+            <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon" class="diff-icon" id="pizzaIcon">
             <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon" class="comp-pizza hidden" id="pizzaIconComp">
           </section>
           <section class="diff sewer">
-            <img src="assets/waste-sewer-svgrepo-com.svg" alt="sewer-icon" id="sewerIcon">
+            <img src="assets/waste-sewer-svgrepo-com.svg" alt="sewer-icon" class="diff-icon" id="sewerIcon">
             <img src="assets/waste-sewer-svgrepo-com.svg" alt="sewer-icon" class="comp-sewer hidden" id="sewerIconComp">
           </section>
         </div>
-        <div class="bottom-row-difficult hidden" id="bottomRowIcons">
+        <div class="bottom-row-diff" id="diffBottomRowIcons">
           <section class="diff microphone">
-            <img src="assets/news-report-mic-svgrepo-com.svg" alt="microphone-icon" id="micIcon">
+            <img src="assets/news-report-mic-svgrepo-com.svg" alt="microphone-icon" class="diff-icon" id="micIcon">
             <img src="assets/news-report-mic-svgrepo-com.svg" alt="microphone-icon" class="comp-mic hidden" id="micIconComp">
           </section>
           <section class="diff ninja-star">
-          <img src="assets/ninja-star-svgrepo-com.svg" alt="ninja-star-icon" id="ninjaStarIcon">
-          <img src="assets/ninja-star-svgrepo-com.svg" alt="ninja-star-icon" class="comp-ninja-star hidden" id="ninjaStarIconComp">
+            <img src="assets/ninja-star-svgrepo-com.svg" alt="ninja-star-icon" class="diff-icon" id="ninjaStarIcon">
+            <img src="assets/ninja-star-svgrepo-com.svg" alt="ninja-star-icon" class="comp-ninja-star hidden" id="ninjaStarIconComp">
           </section>
-        </section>
+        </div>
       </article>
     </main>
-    <aside class="computer">
+    <aside class="computer easy">
       <section class="player-info">
         <p class="icon">🦾🤖</p><br>
         <p>MACHINE</p><br>

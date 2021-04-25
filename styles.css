@@ -19,7 +19,7 @@ header {
   flex-direction: row;
   justify-content: center;
   font-size: 1.8em;
-  margin-top: 2%;
+  margin-top: 1%;
 }
 
 .main-container {
@@ -32,23 +32,6 @@ header {
 
 h2, h4 {
   margin: 4% 2%;
-}
-
-.choose-area {
-  margin-top: 0;
-  height: auto;
-  background-color: #a1aec4;
-}
-
-.choose {
-  /* margin-top: 2%; */
-}
-
-.game-area {
-  display: flex;
-  flex-direction: column;
-  width: 61vw;
-  height: auto;
 }
 
 .whole-page {
@@ -65,8 +48,23 @@ h2, h4 {
   font-size: 2em;
 }
 
-.human,
-.computer {
+.aside-diff-layout {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 2%;
+  width: 22vw;
+  height: auto;
+  background-image: url(assets/shell.png);
+  background-size: 9.3vw;
+  background-repeat: repeat;
+  background-color: black;
+  padding-top: 8%;
+}
+
+.easy {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -78,68 +76,94 @@ h2, h4 {
   padding-top: 8%;
 }
 
+.choose-game-btn-section {
+  margin-top: 0;
+  height: 67vh;
+  background-color: #a1aec4;
+}
+
+.classic-btn {
+  box-sizing: border-box;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-radius: 0.5em;
+  width: 15vw;
+  height: 15.6vh;
+  color: white;
+  cursor: pointer;
+  background-color: rebeccaPurple;
+}
+
+.difficult-btn {
+  box-sizing: border-box;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-radius: 0.5em;
+  width: 20vw;
+  height: 20.6vh;
+  color: white;
+  cursor: pointer;
+  background-color: rebeccaPurple;
+}
+
 .change-game-btn {
   width: 9vw;
   height: 9vh;
+  border-radius: 0.5em;
   background-color: rebeccaPurple;
   color: white;
   font-size: 20px;
 }
 
-.nav {
+.choose-game-btn-section {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
-  width: 15vw;
-  height: auto;
-  background-color: Transparent;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  overflow: hidden;
-  font-size: 1.3em;
-  font-weight: 600;
-  border-radius: 0.2em;
+  width: 55vw;
+  height: 60vh;
+}
+
+.choose-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 69vh;
+}
+
+.classic-game-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 70vh;
+}
+
+.difficult-game-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 67vh;
 }
 
 .icon {
   font-size: 3em;
 }
 
-.classic-btn {
-  width: 23vw;
-  height: 21.6vh;
-  margin-left: 31.5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  /* align-items: center; */
-  padding: 5%;
-  color: white;
-  background-color: rebeccaPurple;
-}
-
-.difficult-btn {
-  padding-top: 3%;
-  margin-top: 5%;
-  width: 23vw;
-  height: 33.6vh;
-  margin-left: 31.5%;
-  margin-bottom: 3vh;
-  color: white;
-  background-color: rebeccaPurple;
-}
-
-
 img {
   width: 12vw;
-  height: 28vh;
+  height: 17vh;
   padding-top: 20vh;
   padding-bottom: 24vh;
 }
 
 img:hover {
   cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:32px;'><text y='50%'>🧠</text></svg>") 16 0,auto;
+}
+
+.diff {
+  /* height: 32vh; */
 }
 
 .paper {
@@ -152,49 +176,40 @@ img:hover {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 15vh;
-  padding-top: 0vh;
   height: 28vh;
+  box-sizing: border-box;
 }
 
-.top-row-difficult {
+.top-row-diff {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   margin-bottom: 15vh;
   height: 10vh;
-  /* border: 2px solid blue; */
+  box-sizing: border-box;
 }
 
-.bottom-row-difficult {
+.bottom-row-diff {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 7vh;
   height: 20vh;
-  /* border: 2px solid blue; */
 }
 
-.diff {
-  height: 32vh;
-}
 
-.ninja-star,
-.microphone {
-  padding-left: 15vw;
-  padding-right: 5vw;
+.ninja-star {
+  padding-right: 15vw;
   height: 10vh;
   margin-bottom: 80vh;
 }
 
-.game-board {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
-  height: auto;
+.microphone {
+  padding-left: 15vw;
+  height: 10vh;
+  margin-bottom: 80vh;
 }
 
 .rockIcon,
