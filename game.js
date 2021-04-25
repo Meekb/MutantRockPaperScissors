@@ -38,9 +38,11 @@ class Game {
     if (localStorage === null) {
       this.human.humanWins = 0;
       this.computer.compWins = 0;
-      console.log('no storage!');
     } else {
-      this.human.retrieveWinsFromStorage();
+      var humanWins = this.human.retrieveWinsFromStorage();
+      var compWins = this.computer.retrieveWinsFromStorage();
+      this.human.humanWins = humanWins;
+      this.computer.compWins = compWins;
     }
   }
 

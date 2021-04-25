@@ -10,6 +10,7 @@ var compWins = document.getElementById('compWinCounter');
   //buttons
 var classicBtn = document.getElementById('classicBtn');
 var difficultBtn = document.getElementById('difficultBtn');
+var changeTypeBtn = document.getElementById('winScreenBtn');
 
   // innerText areas
 var chooseWinText = document.getElementById('chooseText');
@@ -29,6 +30,7 @@ var mic = document.getElementById('micIcon');
 var ninjaStar = document.getElementById('ninjaStarIcon');
 var topRowIcons = document.getElementById('topRowIcons');
 var bottomRowIcons = document.getElementById('bottomRowIcons');
+var allIcons = document.getElementById('img');
 
 
 // GLOBAL VARIABLES
@@ -39,12 +41,14 @@ var newGame;
 classicBtn.addEventListener('click', startClassicGame);
 difficultBtn.addEventListener('click', startDifficultGame);
 classicListenArea.addEventListener('click', classicWinSequence);
+changeTypeBtn.addEventListener('click', backToBeginning);
 
 // EVENT HANDLERS
 
 //master game functions
 function startClassicGame() {
   createGame();
+  // updateWinCounts();
   newGame.gameType();
   newGame.loadPlayerNames();
   newGame.loadTokens()
@@ -61,7 +65,6 @@ function startDifficultGame() {
   newGame.loadTokens();
   newGame.loadWins();
   changeToGameScreen();
-  updateWinCounts();
   // console.log(newGame);
 }
 
@@ -71,10 +74,11 @@ function classicWinSequence() {
   newGame.determineClassicWinner();
   newGame.winCount();
   disableListener();
+  // window.setTimeout(resetGame(), 3000);
   changeToWinnerText();
+  unhideElement(changeTypeBtn);
   displayIconsPicked();
   updateWinCounts();
-  // window.setTimeout(resetGame(), 3000);
   console.log(newGame);
 }
 
@@ -95,24 +99,48 @@ function changeToGameScreen() {
   }
 }
 
-function displayIconsPicked() {
-  showHumanIcon();
-  showCompIcon();
+function changeToMainScreen() {
+  if (newGame.type === 'Classic') {
+    hideElement(topRowIcons);
+    unhideElement(chooseScreen);
+    // toggleDiffIcons(turtle, pizza, sewer, mic, ninjaStar);
+  // } else {
+  //   hideElement(chooseScreen);
+  //   unhideElement(topRowIcons);
+  //   unhideElement(bottomRowIcons);
+    toggleClassicIcons(rock, paper, scissors);
+  }
 }
 
-function updateWinCounts() {
-  humanWins.innerText = newGame.human.humanWins;
-  compWins.innerText = newGame.computer.compWins;
+function displayIconsPicked() {
+  showHumanIcon(classicBtn);
+  showCompIcon(difficultBtn);
 }
 
 function resetGame() {
+  createGame();
   changeToPickText();
   resetClassicIcons();
+  updateWinCounts();
+  hideAll();
+}
+
+// function backToMain() {
+//   console.log(event.target.id);
+//   resetClassicIcons();
+//   unhideElement(classicBtn);
+//   unhideElement(difficultBtn);
+// }
+
+function backToBeginning() {
+  changeToGameScreen();
 }
 
 function resetClassicIcons() {
   for (var i = 0; i < classicIcons.length; i++) {
-    classicIcons[i].classList.toggle('hidden')
+    if (!classicIcons[i].classList.includes('hidden')) {
+      console.log(classicIcons[i]);
+    }
   }
 }
 
@@ -142,6 +170,10 @@ function disableListener() {
 
 function changeToPickText() {
   chooseWinText.innerText = '👇 Human Pick Your Weapon 👇'
+}
+
+function changeToChooseGameText() {
+  chooseWinText.innerText = 'Choose your game!';
 }
 
 function changeToWinnerText() {
@@ -185,4 +217,12 @@ function toggleDiffIcons(icon1, icon2, icon3, icon4, icon5) {
   icon3.classList.toggle('hidden');
   icon4.classList.toggle('hidden');
   icon5.classList.toggle('hidden');
+}
+
+function hideAll(images) {
+  for (var i = 0; i < images.length; i++) {
+    if (!images[i].classList.includes('hidden')) {
+      images[i].classList.toggle('hidden');
+    }
+  }
 }

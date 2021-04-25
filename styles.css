@@ -78,6 +78,14 @@ h2, h4 {
   padding-top: 8%;
 }
 
+.change-game-btn {
+  width: 9vw;
+  height: 9vh;
+  background-color: rebeccaPurple;
+  color: white;
+  font-size: 20px;
+}
+
 .nav {
   display: flex;
   flex-direction: column;
@@ -108,7 +116,7 @@ h2, h4 {
   /* align-items: center; */
   padding: 5%;
   color: white;
-  background-color: #7e42f5;
+  background-color: rebeccaPurple;
 }
 
 .difficult-btn {
@@ -119,7 +127,7 @@ h2, h4 {
   margin-left: 31.5%;
   margin-bottom: 3vh;
   color: white;
-  background-color: #7e42f5;
+  background-color: rebeccaPurple;
 }
 
 

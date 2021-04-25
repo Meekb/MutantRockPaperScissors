@@ -35,12 +35,17 @@ class Player {
   // parsedObject (We are now back to our original object!)
 
   retrieveWinsFromStorage() {
-    var retrievedHumanWins = localStorage.getItem('storedHumanWins');
-    var humanWins = JSON.parse(retrievedHumanWins);
-    newGame.human.humanWins = humanWins;
-    var retrievedCompWins = localStorage.getItem('storedCompWins');
-    var compWins = JSON.parse(retrievedCompWins);
-    newGame.computer.compWins = compWins;
+    if (this.human.name === 'Human') {
+      var retrievedHumanWins = localStorage.getItem('storedHumanWins');
+      var humanWins = JSON.parse(retrievedHumanWins);
+      humanWins = this.humanWins;
+      return humanWins
+    } else {
+      var retrievedCompWins = localStorage.getItem('storedCompWins');
+      var compWins = JSON.parse(retrievedCompWins);
+      compWins = this.compWins;
+      return compWins
+    }
   }
 
 };
