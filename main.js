@@ -19,7 +19,8 @@ var changeTypeBtn = document.getElementById('winScreenBtn');
 var chooseWinText = document.getElementById('chooseText');
 
   // icons
-var classicIcons = document.querySelectorAll('classic-icons');
+var allIcons = document.querySelectorAll('img');
+// var classicIcons = document.querySelectorAll('.classic-icons');
 var rock = document.getElementById('rockIcon');
 var paper = document.getElementById('paperIcon');
 var scissors = document.getElementById('scissorsIcon');
@@ -36,9 +37,7 @@ var compPizza = document.getElementById('pizzaIconComp');
 var compSewer = document.getElementById('sewerIconComp');
 var compMic = document.getElementById('micIconComp');
 var compNinjaStar = document.getElementById('ninjaStarIconComp');
-// var topRowHolder = document.getElementById('topRowIcons');
 var bottomRowIcons = document.getElementById('bottomRowIcons');
-// var classicIcons = document.querySelectorAll('.ctri');
 
 // GLOBAL VARIABLES
 var newGame;
@@ -52,11 +51,12 @@ changeTypeBtn.addEventListener('click', backToBeginning);
 //master game functions
 function startClassicGame() {
   createGame();
+  resetIcons();
   newGame.gameType();
   newGame.loadPlayerNames();
   newGame.loadTokens()
   newGame.loadWins();
-  addClassicListener();
+  addListener();
   changeToGameScreen();
   changeToClassicPickText();
   console.log(newGame);
@@ -64,11 +64,12 @@ function startClassicGame() {
 
 function startDifficultGame() {
   createGame();
+  resetIcons()
   newGame.gameType();
   newGame.loadPlayerNames();
   newGame.loadTokens();
   newGame.loadWins();
-  addDifficultListener();
+  addListener();
   applyDiffLayout();
   changeToGameScreen();
   changeToDiffPickText();
@@ -89,6 +90,15 @@ function classicWinSequence() {
   console.log(newGame);
 }
 
+function resetClassicGameBoard() {
+  setTimeout(function () {
+    changeToClassicPickText();
+    resetIcons();
+    addListener();
+  }, 3000);
+}
+
+
 function difficultWinSequence() {
   newGame.computerDiffTurn();
   newGame.checkHumanWeapon();
@@ -98,23 +108,37 @@ function difficultWinSequence() {
   showHumanDiffIcon();
   showCompDiffIcon();
   unhideElement(changeTypeBtn);
-  // setTimeout(resetClassicGameBoard(), 6000);
-}
-
-function resetClassicGameBoard() {
-  setTimeout(function () {
-    changeToClassicPickText();
-    resetClassicIcons();
-    // changeToGameScreen();
-  }, 3000);
-  // rehideCompIcon();
-  // hideAll();
+  resetDiffGameBoard()
 }
 
 function resetDiffGameBoard() {
   setTimeout(function () {
     changeToDiffPickText();
-    
+    resetIcons()
+    addListener();
+  }, 3000);
+}
+
+function backToBeginning() {
+  if (newGame.type !== 'Classic') {
+    applyClassicLayout();
+    // rehideCompDiffIcon()
+    hideElement(changeTypeBtn);
+    hideElement(classicGameBoard);
+    unhideElement(chooseScreen);
+    changeToChooseGameText()
+  } else {
+    hideElement(changeTypeBtn);
+    hideElement(classicGameBoard);
+    unhideElement(chooseScreen);
+    changeToChooseGameText();
+  }
+}
+function resetDiffGameBoard() {
+  setTimeout(function () {
+    addListener();
+    changeToDiffPickText();
+    resetIcons()
   }, 3000);
 }
 
@@ -140,7 +164,7 @@ function applyClassicLayout() {
     asides[i].classList.toggle('easy');
     asides[i].classList.toggle('aside-diff-layout');
   }
-  changeToPickText();
+  changeToClassicPickText();
 }
 
 function applyDiffLayout() {
@@ -149,7 +173,7 @@ function applyDiffLayout() {
     asides[i].classList.toggle('easy');
     asides[i].classList.toggle('aside-diff-layout');
   }
-  changeToPickText();
+  changeToDiffPickText();
 }
 
 function displayWins() {
@@ -157,42 +181,34 @@ function displayWins() {
   compWinCounter.innerText = newGame.displayableCompWin();
 }
 
-function backToBeginning() {
-  if (newGame.type !== 'Classic') {
-    applyClassicLayout();
-    // rehideCompDiffIcon()
-    hideElement(changeTypeBtn);
-    hideElement(classicGameBoard);
-    unhideElement(chooseScreen);
-    changeToChooseGameText()
+function resetIcons() {
+  if (newGame.type === 'Classic') {
+    for (var i = 0; i < allIcons.length; i++) {
+      if (allIcons[i].classList.contains('comp') && !allIcons[i].classList.contains('hidden')){
+        hideElement(allIcons[i])
+      } else if (allIcons[i].classList.contains('ctri') && allIcons[i].classList.contains('hidden')) {
+        unhideElement(allIcons[i]);
+      }
+    }
   } else {
-    rehideCompIcon()
-    hideElement(changeTypeBtn);
-    hideElement(classicGameBoard);
-    unhideElement(chooseScreen);
-    changeToChooseGameText();
-  }
-}
-
-function resetClassicIcons() {
-  for (var i = 0; i < classicIcons.length; i++) {
-    console.log(classicIcons[i]);
-    if (classicIcons[i].classList.contains('crti') && classicIcons[i].classList.contains('hidden')) {
-      console.log('yes', classicIcons[i]);
-      unhideElement(classicIcons[i])
-    } else {
-      hideElement(classicIcons[i])
+    for (var i = 0; i < allIcons.length; i++) {
+      if (allIcons[i].classList.contains('dcomp') && !allIcons[i].classList.contains('hidden')) {
+        hideElement(allIcons[i])
+      } else if (allIcons[i].classList.contains('dtri') && allIcons[i].classList.contains('hidden')) {
+        unhideElement(allIcons[i]);
+      }
     }
   }
 }
 
-function addClassicListener() {
-  classicGameBoard.addEventListener('click', classicWinSequence);
+function addListener() {
+  if (newGame.type === 'Classic') {
+    classicGameBoard.addEventListener('click', classicWinSequence);
+  } else {
+    difficultGameBoard.addEventListener('click', difficultWinSequence);
+  }
 }
 
-function addDifficultListener() {
-  difficultGameBoard.addEventListener('click', difficultWinSequence);
-}
 
 function disableListener() {
   if (newGame.type === 'Classic') {
@@ -289,7 +305,7 @@ function changeToClassicPickText() {
 }
 
 function changeToDiffPickText() {
-  chooseWinText.innerText = '🥷🏽 Human Pick Your Weapon 🥷🏽'
+  chooseWinText.innerText = '🥷🏽 Donatello, Pick Your Weapon 🥷🏽'
 }
 
 function changeToWinnerText() {
