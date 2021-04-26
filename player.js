@@ -18,55 +18,35 @@ class Player {
     } else {
       this.weapon = 'scissors'
     }
+    console.log(this.weapon)
   }
 
   takeDiffTurn() {
-    if (event.target.closest('turtleIcon')) {
+    if (event.target.closest('#turtleIcon')) {
       this.weapon = 'Donatello'
-    } else if (event.target.closest('pizzaIcon')) {
+    } else if (event.target.closest('#pizzaIcon')) {
       this.weapon = 'Pizza'
-    } else if (event.target.closest('sewerIcon')) {
+    } else if (event.target.closest('#sewerIcon')) {
       this.weapon = 'Sewer'
-    } else if (event.target.closest('micIcon')) {
+    } else if (event.target.closest('#micIcon')) {
       this.weapon = 'News Microphone'
     } else {
       this.weapon = 'Ninja Star'
     }
+    console.log(this.weapon)
   }
 
   winIncrease() {
     this.wins++
-  }
-
-  drawScenarioWins() {
-    this.wins += 0;
+    this.saveWinsToStorage()
   }
 
   saveWinsToStorage() {
-    if (this.name === 'Human') {
-      var humanWinsToStore = this.wins;
-      var stringifiedWins = JSON.stringify(humanWinsToStore);
-      localStorage.setItem(JSON.stringify('storedHumanWins'), stringifiedWins);
-    } else {
-      var compWinsToStore = this.wins;
-      var stringifiedCompWins = JSON.stringify(compWinsToStore);
-      localStorage.setItem(JSON.stringify('storedCompWins'), stringifiedCompWins);
-      console.log(localStorage);
-    }
+    localStorage.setItem(this.name, this.wins)
   }
 
   retrieveWinsFromStorage() {
-    if (this.name === 'Human') {
-      var retrievedHumanWins = localStorage.getItem('storedHumanWins');
-      var humanWins = JSON.parse(retrievedHumanWins);
-      humanWins = this.wins;
-      return humanWins
-    } else {
-      var retrievedCompWins = localStorage.getItem('storedCompWins');
-      var compWins = JSON.parse(retrievedCompWins);
-      compWins = this.wins;
-      return compWins
-    }
+    this.wins = +localStorage.getItem(this.name) || 0;
   }
 
 };

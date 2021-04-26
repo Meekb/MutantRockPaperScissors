@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
     <title>ROCK PAPER SCISSORS</title>
   </head>
   <body class="whole-page">
     <aside class="human easy">
-      <section class="player-info">
-        <p class="icon">🧠👤</p><br>
+      <section class="player-info diff-player-info">
+        <p class="icon"><img src="assets/brain-svgrepo-com (2).svg" alt="human-brain" class="classic-brain player"></p><br>
         <p>HUMAN</p><br>
         <p>WINS:<span id="humanWinCounter"></span></p><br>
         <button type="button" name="button" title="Change Game?" class="change-game-btn hidden" id="winScreenBtn">Change Game?</button>
@@ -38,8 +39,8 @@
       </article>
       <article class="difficult-game-board hidden" id="difficultBoard">
         <div class="top-row-diff" id="diffTopRowIcons">
-          <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" class="diff-icon dtri" id="turtleIcon">
-          <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" class="comp-turtle dcomp hidden" id="turtleIconComp">
+          <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" class="diff-icon dtri turtle" id="turtleIcon">
+          <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" class="comp-turtle dcomp turtle hidden" id="turtleIconComp">
           <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon" class="diff-icon dtri pizza" id="pizzaIcon">
           <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon" class="comp-pizza dcomp hidden" id="pizzaIconComp">
           <img src="assets/waste-sewer-svgrepo-com.svg" alt="sewer-icon" class="diff-icon dtri" id="sewerIcon">
@@ -54,8 +55,8 @@
       </article>
     </main>
     <aside class="computer easy">
-      <section class="player-info">
-        <p class="icon">🦾🤖</p><br>
+      <section class="player-info diff-player-info">
+        <p class="icon"><img src="assets/robot-head-with-an-antenna-svgrepo-com.svg" alt="robot-antenna" class="classic-robot player"></p><br>
         <p>MACHINE</p><br>
         <p>WINS:<span id="compWinCounter"></span></p><br>
       </section>

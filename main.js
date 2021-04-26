@@ -3,8 +3,8 @@
 var chooseScreen = document.getElementById('chooseContainer');
 var difficultGameBoard = document.getElementById('difficultBoard');
 var classicGameBoard = document.getElementById('classicBoard');
-var diffTopRow = document.getElementById('diffTopRowIcons');
-var diffBottomRow = document.getElementById('diffBottomRowIcons');
+// var diffTopRow = document.getElementById('diffTopRowIcons');
+// var diffBottomRow = document.getElementById('diffBottomRowIcons');
 var humanWins = document.getElementById('humanWinCounter');
 var compWins = document.getElementById('compWinCounter');
 var asides = document.querySelectorAll('aside')
@@ -43,6 +43,7 @@ var bottomRowIcons = document.getElementById('bottomRowIcons');
 var newGame;
 
 // EVENT LISTENERS
+window.addEventListener('load', createGame);
 classicBtn.addEventListener('click', startClassicGame);
 difficultBtn.addEventListener('click', startDifficultGame);
 changeTypeBtn.addEventListener('click', backToBeginning);
@@ -50,12 +51,13 @@ changeTypeBtn.addEventListener('click', backToBeginning);
 // EVENT HANDLERS
 //master game functions
 function startClassicGame() {
-  createGame();
-  resetIcons();
+  // createGame();
+  resetClassIcons();
   newGame.gameType();
   newGame.loadPlayerNames();
   newGame.loadTokens()
   newGame.loadWins();
+  displayWins();
   addListener();
   changeToGameScreen();
   changeToClassicPickText();
@@ -63,12 +65,13 @@ function startClassicGame() {
 }
 
 function startDifficultGame() {
-  createGame();
-  resetIcons()
+  // createGame();
+  resetDiffIcons();
   newGame.gameType();
   newGame.loadPlayerNames();
   newGame.loadTokens();
   newGame.loadWins();
+  displayWins();
   addListener();
   applyDiffLayout();
   changeToGameScreen();
@@ -84,18 +87,10 @@ function classicWinSequence() {
   changeToWinnerText();
   showHumanIcon();
   showCompIcon();
-  unhideElement(changeTypeBtn);
-  displayWins();
   resetClassicGameBoard();
-  console.log(newGame);
-}
-
-function resetClassicGameBoard() {
-  setTimeout(function () {
-    changeToClassicPickText();
-    resetIcons();
-    addListener();
-  }, 3000);
+  // newGame.loadWins();
+  displayWins();
+  // unhideElement(changeTypeBtn);
 }
 
 
@@ -107,39 +102,50 @@ function difficultWinSequence() {
   changeToDiffWinnerText();
   showHumanDiffIcon();
   showCompDiffIcon();
-  unhideElement(changeTypeBtn);
   resetDiffGameBoard()
+  // newGame.loadWins()
+  displayWins();
+  // unhideElement(changeTypeBtn);
+}
+
+function resetClassicGameBoard() {
+  setTimeout(function () {
+    changeToClassicPickText();
+    resetClassIcons();
+    addListener();
+  }, 3000);
+  if (changeTypeBtn.classList.contains('hidden')) {
+    unhideElement(changeTypeBtn);
+  }
 }
 
 function resetDiffGameBoard() {
   setTimeout(function () {
     changeToDiffPickText();
-    resetIcons()
+    resetDiffIcons()
     addListener();
   }, 3000);
+  if (changeTypeBtn.classList.contains('hidden')) {
+    unhideElement(changeTypeBtn);
+  }
 }
 
 function backToBeginning() {
-  if (newGame.type !== 'Classic') {
+  if (newGame.type === 'Difficult') {
     applyClassicLayout();
     // rehideCompDiffIcon()
     hideElement(changeTypeBtn);
-    hideElement(classicGameBoard);
+    hideElement(difficultGameBoard);
     unhideElement(chooseScreen);
     changeToChooseGameText()
+    displayWins()
   } else {
     hideElement(changeTypeBtn);
     hideElement(classicGameBoard);
     unhideElement(chooseScreen);
     changeToChooseGameText();
+    displayWins();
   }
-}
-function resetDiffGameBoard() {
-  setTimeout(function () {
-    addListener();
-    changeToDiffPickText();
-    resetIcons()
-  }, 3000);
 }
 
 function createGame() {
@@ -177,26 +183,26 @@ function applyDiffLayout() {
 }
 
 function displayWins() {
-  humanWinCounter.innerText = newGame.displayableHumanWin();
-  compWinCounter.innerText = newGame.displayableCompWin();
+  humanWinCounter.innerText = newGame.human.wins;
+  compWinCounter.innerText = newGame.computer.wins;
 }
 
-function resetIcons() {
-  if (newGame.type === 'Classic') {
-    for (var i = 0; i < allIcons.length; i++) {
-      if (allIcons[i].classList.contains('comp') && !allIcons[i].classList.contains('hidden')){
-        hideElement(allIcons[i])
-      } else if (allIcons[i].classList.contains('ctri') && allIcons[i].classList.contains('hidden')) {
-        unhideElement(allIcons[i]);
-      }
+function resetClassIcons() {
+  for (var i = 0; i < allIcons.length; i++) {
+    if (allIcons[i].classList.contains('comp') && !allIcons[i].classList.contains('hidden')){
+      hideElement(allIcons[i])
+    } else if (allIcons[i].classList.contains('ctri') && allIcons[i].classList.contains('hidden')) {
+      unhideElement(allIcons[i]);
     }
-  } else {
-    for (var i = 0; i < allIcons.length; i++) {
-      if (allIcons[i].classList.contains('dcomp') && !allIcons[i].classList.contains('hidden')) {
-        hideElement(allIcons[i])
-      } else if (allIcons[i].classList.contains('dtri') && allIcons[i].classList.contains('hidden')) {
-        unhideElement(allIcons[i]);
-      }
+  }
+}
+
+function resetDiffIcons() {
+  for (var i = 0; i < allIcons.length; i++) {
+    if (allIcons[i].classList.contains('dcomp') && !allIcons[i].classList.contains('hidden')) {
+      hideElement(allIcons[i])
+    } else if (allIcons[i].classList.contains('dtri') && allIcons[i].classList.contains('hidden')) {
+      unhideElement(allIcons[i]);
     }
   }
 }
@@ -214,7 +220,7 @@ function disableListener() {
   if (newGame.type === 'Classic') {
     classicGameBoard.removeEventListener('click', classicWinSequence);
   } else {
-    difficultGameBoard.addEventListener('click', difficultWinSequence);
+    difficultGameBoard.removeEventListener('click', difficultWinSequence);
   }
 }
 
@@ -229,13 +235,13 @@ function showHumanIcon() {
 }
 
 function showHumanDiffIcon() {
-  if (event.target.closest.id === 'turtleIcon') {
+  if (event.target.closest('#turtleIcon')) {
     hideDiffIconShells(pizza, sewer, mic, ninjaStar)
-  } else if (event.target.closest.id === 'pizzaIcon') {
+  } else if (event.target.closest('#pizzaIcon')) {
     hideDiffIconShells(turtle, sewer, mic, ninjaStar);
-  } else if (event.target.closest.id === 'sewerIcon') {
+  } else if (event.target.closest('#sewerIcon')) {
     hideDiffIconShells(turtle, pizza, mic, ninjaStar)
-  } else if (event.target.closest.id === 'micIcon') {
+  } else if (event.target.closest('#micIcon')) {
     hideDiffIconShells(turtle, pizza, sewer, ninjaStar);
   } else {
     hideDiffIconShells(turtle, pizza, sewer, mic)
@@ -272,36 +278,12 @@ function showCompDiffIcon() {
   }
 }
 
-function rehideCompIcon() {
-  if (newGame.randomWeapon === 'rock') {
-    hideElement(compRock);
-  } else if (newGame.randomWeapon === 'paper') {
-    hideElement(compPaper);
-  } else {
-    hideElement(compScissors);
-  }
-}
-
-function rehideCompDiffIcon() {
-  if (newGame.randomWeapon === 'Turtle') {
-    hideElement(compTurtle);
-  } else if (newGame.randomWeapon === 'Pizza') {
-    hideElement(compPizza);
-  } else if (newGame.randomWeapon === 'Sewer') {
-    hideElement(compSewer);
-  } else if (newGame.randomWeapon === 'News Microphone') {
-    hideElement(compMic);
-  } else {
-    hideElement(compNinjaStar)
-  }
-}
-
 function changeToChooseGameText() {
   chooseWinText.innerText = 'Choose Your Game!'
 }
 
 function changeToClassicPickText() {
-  chooseWinText.innerText = '👇 Human Pick Your Weapon 👇'
+  chooseWinText.innerText = '⬇ Human Pick Your Weapon ⬇'
 }
 
 function changeToDiffPickText() {
@@ -320,11 +302,11 @@ function changeToWinnerText() {
 
 function changeToDiffWinnerText() {
   if (newGame.gameWinner === 'DRAW') {
-    chooseText.innerText = '🤮 Sorry, It Was A Draw! 🤮'
+    chooseText.innerText = '🥷🏽 Sorry, It Was A Draw! 👿'
   } else if (newGame.gameWinner === 'Computer') {
-    chooseText.innerText = '👺 The Shredder Won This Round! 👺'
+    chooseText.innerText = '👿 The Shredder Won This Round! 👿'
   } else {
-    chooseText.innerText = '🥷🏽  Donatello, You Did It! 🥷🏽 '
+    chooseText.innerText = '🥷  Donatello, You Did It! 🥷🏽 '
   }
 }
 
@@ -337,11 +319,6 @@ function unhideElement(element) {
   element.classList.toggle('hidden');
 }
 
-function hideGameButtons(btn1, btn2) {
-  btn1.classList.toggle('hidden');
-  btn2.classList.toggle('hidden');
-}
-
 function unhideIconCompShell(icon) {
   icon.classList.toggle('hidden');
 }
@@ -351,10 +328,6 @@ function hideDiffIconShells(icon1, icon2, icon3, icon4) {
   icon2.classList.toggle('hidden');
   icon3.classList.toggle('hidden');
   icon4.classList.toggle('hidden');
-}
-
-function rehideCompShell(icon) {
-  icon.classList.toggle('hidden');
 }
 
 function hideIconShells(icon1, icon2) {
