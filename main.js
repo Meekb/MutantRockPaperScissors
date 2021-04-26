@@ -111,6 +111,13 @@ function resetClassicGameBoard() {
   // hideAll();
 }
 
+function resetDiffGameBoard() {
+  setTimeout(function () {
+    changeToDiffPickText();
+    
+  }, 3000);
+}
+
 function createGame() {
   newGame = new Game();
   newGame.loadWins();
