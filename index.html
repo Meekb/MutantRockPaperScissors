@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="styles.css">
     <title>ROCK PAPER SCISSORS</title>
   </head>
   <body class="whole-page">
     <aside class="human easy">
-      <section class="player-info">
-        <p class="icon">🧠👤</p><br>
+      <section class="player-info diff-player-info">
+        <p class="icon"><img src="assets/brain-svgrepo-com (2).svg" alt="human-brain" class="classic-brain player"></p><br>
         <p>HUMAN</p><br>
         <p>WINS:<span id="humanWinCounter"></span></p><br>
         <button type="button" name="button" title="Change Game?" class="change-game-btn hidden" id="winScreenBtn">Change Game?</button>
@@ -38,24 +39,24 @@
       </article>
       <article class="difficult-game-board hidden" id="difficultBoard">
         <div class="top-row-diff" id="diffTopRowIcons">
-          <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" class="diff-icon" id="turtleIcon">
-          <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" class="comp-turtle hidden" id="turtleIconComp">
-          <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon" class="diff-icon pizza" id="pizzaIcon">
-          <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon" class="comp-pizza hidden" id="pizzaIconComp">
-          <img src="assets/waste-sewer-svgrepo-com.svg" alt="sewer-icon" class="diff-icon" id="sewerIcon">
-          <img src="assets/waste-sewer-svgrepo-com.svg" alt="sewer-icon" class="comp-sewer hidden" id="sewerIconComp">
+          <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" class="diff-icon dtri turtle" id="turtleIcon">
+          <img src="assets/ninja-svgrepo-com.svg" alt="turtle-ninja-icon" class="comp-turtle dcomp turtle hidden" id="turtleIconComp">
+          <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon" class="diff-icon dtri pizza" id="pizzaIcon">
+          <img src="assets/pizza-svgrepo-com (1).svg" alt="pizza-icon" class="comp-pizza dcomp pizza hidden" id="pizzaIconComp">
+          <img src="assets/waste-sewer-svgrepo-com.svg" alt="sewer-icon" class="diff-icon dtri sewer" id="sewerIcon">
+          <img src="assets/waste-sewer-svgrepo-com.svg" alt="sewer-icon" class="comp-sewer dcomp sewer hidden" id="sewerIconComp">
         </div>
         <div class="bottom-row-diff" id="diffBottomRowIcons">
-          <img src="assets/news-report-mic-svgrepo-com.svg" alt="microphone-icon" class="diff-icon mic" id="micIcon">
-          <img src="assets/news-report-mic-svgrepo-com.svg" alt="microphone-icon" class="comp-mic hidden" id="micIconComp">
-          <img src="assets/ninja-star-svgrepo-com.svg" alt="ninja-star-icon" class="diff-icon star" id="ninjaStarIcon">
-          <img src="assets/ninja-star-svgrepo-com.svg" alt="ninja-star-icon" class="comp-ninja-star hidden" id="ninjaStarIconComp">
+          <img src="assets/news-report-mic-svgrepo-com.svg" alt="microphone-icon" class="diff-icon dtri mic" id="micIcon">
+          <img src="assets/news-report-mic-svgrepo-com.svg" alt="microphone-icon" class="comp-mic dcomp mic hidden" id="micIconComp">
+          <img src="assets/ninja-star-svgrepo-com.svg" alt="ninja-star-icon" class="diff-icon dtri ninja star" id="ninjaStarIcon">
+          <img src="assets/ninja-star-svgrepo-com.svg" alt="ninja-star-icon" class="comp-ninja-star dcomp ninja hidden" id="ninjaStarIconComp">
         </div>
       </article>
     </main>
     <aside class="computer easy">
-      <section class="player-info">
-        <p class="icon">🦾🤖</p><br>
+      <section class="player-info diff-player-info">
+        <p class="icon"><img src="assets/robot-head-with-an-antenna-svgrepo-com.svg" alt="robot-antenna" class="classic-robot player"></p><br>
         <p>MACHINE</p><br>
         <p>WINS:<span id="compWinCounter"></span></p><br>
       </section>

@@ -25,18 +25,20 @@ header {
 .main-container {
   width: 74%;
   background-color: #ababab;
+  text-shadow: 2px 2px #f0f2f1;
   height: auto;
-  border-left: 4px solid black;
-  border-right: 4px solid black;
+  border-left: 7px solid black;
+  border-right: 7px solid black;
 }
 
 .diff-container {
-  color: white;
+  color: black;
+  text-shadow: 4px 4px #54f7ac;
   width: 74%;
-  background-color: #757573;
+  background-color: #3f7038;
   height: auto;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
+  border-left: 7px solid black;
+  border-right: 7px solid black;
 }
 
 h2, h4 {
@@ -49,28 +51,41 @@ h2, h4 {
   length: 100%;
 }
 
-.player-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 2em;
+.player {
+  filter: drop-shadow(0 0 1rem #54f7ac);
 }
 
-.aside-diff-layout {
-  color: white;
+.turtle,
+.pizza,
+.sewer,
+.mic,
+.ninja {
+  filter: drop-shadow(0 0 0.75rem #54f7ac);
+}
+
+.player-info {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 2%;
+  color: black;
+  text-shadow: 3px 3px #54f7ac;
+  font-size: 2em;
+}
+
+.aside-diff-layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 8%;
   width: 22vw;
   height: auto;
+  font-size: 1.5em;
   background-image: url(assets/shell.png);
   background-size: 9.3vw;
   background-repeat: repeat;
-  background-color: #757573;
-  padding-top: 8%;
+  background-color: black;
 }
 
 .easy {
@@ -100,8 +115,14 @@ h2, h4 {
   height: 15.6vh;
   color: #c9c9c9;
   cursor: pointer;
+  border: 4px solid #c9c9c9;
+  background-color: black;
+}
+
+.classic-btn:hover {
+  color: black;
   border: 4px solid black;
-  background-color: rebeccaPurple;
+  background-color: #c9c9c9;
 }
 
 .difficult-btn {
@@ -113,20 +134,32 @@ h2, h4 {
   height: 20.6vh;
   color: #c9c9c9;
   cursor: pointer;
-  border: 4px solid black;
+  border: 4px solid #c9c9c9;
+  background-color: black;
+}
+
+.difficult-btn:hover {
+  color: #c9c9c9;
   background-image: url(assets/shell.png);
   background-size: 5vw;
   background-repeat: repeat;
-  background-color: rebeccaPurple;
+  border: 4px solid black;
+  background-color: #078533;
 }
 
 .change-game-btn {
   width: 9vw;
   height: 9vh;
+  border: 4px solid white;
   border-radius: 0.5em;
-  background-color: rebeccaPurple;
+  background-color: black;
   color: white;
   font-size: 20px;
+}
+
+.change-game-btn:hover {
+  border: 4px solid black;
+  background-color: #078533;
 }
 
 .choose-game-btn-section {
@@ -162,22 +195,18 @@ h2, h4 {
 }
 
 .icon {
-  font-size: 3em;
+  height: 25vh;
+  font-size: 2em;
 }
 
 img {
   width: 10vw;
   height: 20vh;
-  /* padding-top: 20vh; */
   padding-bottom: 24vh;
 }
 
 img:hover {
   cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:32px;'><text y='50%'>🧠</text></svg>") 16 0,auto;
-}
-
-.diff {
-  /* height: 32vh; */
 }
 
 .paper {
@@ -228,12 +257,6 @@ img:hover {
 
 .mic {
   padding-right: 3vw;
-}
-
-.rockIcon,
-.paperIcon,
-.scissorsIcon {
-
 }
 
 .hidden {
