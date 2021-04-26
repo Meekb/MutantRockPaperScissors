@@ -32,10 +32,10 @@ header {
 }
 
 .diff-container {
-  color: white;
-  text-shadow: 4px 4px black;
+  color: black;
+  text-shadow: 4px 4px #54f7ac;
   width: 74%;
-  background-color: #7ca189;
+  background-color: #3f7038;
   height: auto;
   border-left: 7px solid black;
   border-right: 7px solid black;
@@ -52,11 +52,15 @@ h2, h4 {
 }
 
 .player {
-  filter: drop-shadow(0 0 0.75rem white);
+  filter: drop-shadow(0 0 1rem #54f7ac);
 }
 
-.turtle {
-  filter: drop-shadow(0 0 0.75rem darkgreen);
+.turtle,
+.pizza,
+.sewer,
+.mic,
+.ninja {
+  filter: drop-shadow(0 0 0.75rem #54f7ac);
 }
 
 .player-info {
@@ -65,25 +69,23 @@ h2, h4 {
   justify-content: flex-start;
   align-items: center;
   color: black;
-  text-shadow: 2px 2px #f0f2f1;
+  text-shadow: 3px 3px #54f7ac;
   font-size: 2em;
 }
 
 .aside-diff-layout {
-  color: white;
-  text-shadow: 3px 3px black;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 2%;
+  padding-top: 8%;
   width: 22vw;
   height: auto;
+  font-size: 1.5em;
   background-image: url(assets/shell.png);
   background-size: 9.3vw;
   background-repeat: repeat;
-  background-color: #94b5a0;
-  padding-top: 8%;
+  background-color: black;
 }
 
 .easy {
