@@ -150,7 +150,7 @@ h2, h4 {
 .change-game-btn {
   width: 9vw;
   height: 9vh;
-  border: 4px solid white;
+  border: 4px solid black;
   border-radius: 0.5em;
   background-color: black;
   color: white;
@@ -158,7 +158,8 @@ h2, h4 {
 }
 
 .change-game-btn:hover {
-  border: 4px solid black;
+  color: black;
+  border: 4px solid #54f7ac;
   background-color: #078533;
 }
 
