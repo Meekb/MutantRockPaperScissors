@@ -20,6 +20,20 @@ class Player {
     }
   }
 
+  takeDiffTurn() {
+    if (event.target.closest('turtleIcon')) {
+      this.weapon = 'Donatello'
+    } else if (event.target.closest('pizzaIcon')) {
+      this.weapon = 'Pizza'
+    } else if (event.target.closest('sewerIcon')) {
+      this.weapon = 'Sewer'
+    } else if (event.target.closest('micIcon')) {
+      this.weapon = 'News Microphone'
+    } else {
+      this.weapon = 'Ninja Star'
+    }
+  }
+
   winIncrease() {
     this.wins++
   }
