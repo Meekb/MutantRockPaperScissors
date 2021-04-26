@@ -1,5 +1,4 @@
-## Title: Rock Paper Scissors 
-Classic or Ninja Turtle Difficult
+## Title: Rock Paper Scissors (Classic or Ninja Turtle Difficult)
 
 A [Front-End Project] by: [Beth Meeker](https://github.com/Meekb)
 
