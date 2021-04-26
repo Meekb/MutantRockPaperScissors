@@ -13,6 +13,9 @@ body, html {
   padding: 0;
 }
 
+h2, h4 {
+  margin: 4% 2%;
+}
 
 header {
   display: flex;
@@ -20,6 +23,7 @@ header {
   justify-content: center;
   font-size: 1.8em;
   margin-top: 1%;
+  transform: tranlate(-50%, -50%);
 }
 
 .main-container {
@@ -41,9 +45,6 @@ header {
   border-right: 7px solid black;
 }
 
-h2, h4 {
-  margin: 4% 2%;
-}
 
 .whole-page {
   display: flex;
@@ -52,7 +53,7 @@ h2, h4 {
 }
 
 .player {
-  filter: drop-shadow(0 0 1rem #54f7ac);
+  filter: drop-shadow(0rem 0 2rem #54f7ac);
 }
 
 .turtle,
@@ -99,6 +100,7 @@ h2, h4 {
   background-color: #c9c9c9;
   padding-top: 8%;
 }
+
 
 .choose-game-btn-section {
   margin-top: 0;
@@ -153,7 +155,7 @@ h2, h4 {
   border: 4px solid black;
   border-radius: 0.5em;
   background-color: black;
-  color: white;
+  color: #54f7ac;
   font-size: 20px;
 }
 
@@ -161,6 +163,10 @@ h2, h4 {
   color: black;
   border: 4px solid #54f7ac;
   background-color: #078533;
+  background-image: url(assets/shell.png);
+  background-size: 2vw;
+  background-repeat: repeat;
+  border: 4px solid black;
 }
 
 .choose-game-btn-section {

@@ -6,7 +6,7 @@ class Player {
     if (this.name === 'Human') {
       this.weapon = 'rock' || 'paper' || 'scissors'
     } else {
-      this.weapon = 'Machine\'s random weapon'
+      this.weapon = 'TBD'
     }
   }
 

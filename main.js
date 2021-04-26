@@ -1,52 +1,51 @@
 // DOM VARIABLES
-  // containers
-var chooseScreen = document.getElementById('chooseContainer');
-var difficultGameBoard = document.getElementById('difficultBoard');
-var classicGameBoard = document.getElementById('classicBoard');
-// var diffTopRow = document.getElementById('diffTopRowIcons');
-// var diffBottomRow = document.getElementById('diffBottomRowIcons');
-var humanWins = document.getElementById('humanWinCounter');
-var compWins = document.getElementById('compWinCounter');
-var asides = document.querySelectorAll('aside')
-var main = document.querySelector('main');
-
   //buttons
+var changeTypeBtn = document.getElementById('winScreenBtn');
 var classicBtn = document.getElementById('classicBtn');
 var difficultBtn = document.getElementById('difficultBtn');
-var changeTypeBtn = document.getElementById('winScreenBtn');
 
-  // innerText areas
-var chooseWinText = document.getElementById('chooseText');
+// containers
+var asides = document.querySelectorAll('aside')
+var chooseScreen = document.getElementById('chooseContainer');
+var classicGameBoard = document.getElementById('classicBoard');
+var difficultGameBoard = document.getElementById('difficultBoard');
+var main = document.querySelector('main');
 
   // icons
 var allIcons = document.querySelectorAll('img');
-// var classicIcons = document.querySelectorAll('.classic-icons');
-var rock = document.getElementById('rockIcon');
-var paper = document.getElementById('paperIcon');
-var scissors = document.getElementById('scissorsIcon');
-var compRock = document.getElementById('rockIconComp');
-var compPaper = document.getElementById('paperIconComp');
-var compScissors = document.getElementById('scissorsIconComp');
-var turtle = document.getElementById('turtleIcon');
-var pizza = document.getElementById('pizzaIcon');
-var sewer = document.getElementById('sewerIcon');
-var mic = document.getElementById('micIcon');
-var ninjaStar = document.getElementById('ninjaStarIcon');
-var compTurtle = document.getElementById('turtleIconComp');
-var compPizza = document.getElementById('pizzaIconComp');
-var compSewer = document.getElementById('sewerIconComp');
 var compMic = document.getElementById('micIconComp');
 var compNinjaStar = document.getElementById('ninjaStarIconComp');
-var bottomRowIcons = document.getElementById('bottomRowIcons');
+var compPaper = document.getElementById('paperIconComp');
+var compPizza = document.getElementById('pizzaIconComp');
+var compRock = document.getElementById('rockIconComp');
+var compScissors = document.getElementById('scissorsIconComp');
+var compSewer = document.getElementById('sewerIconComp');
+var compTurtle = document.getElementById('turtleIconComp');
+var mic = document.getElementById('micIcon');
+var ninjaStar = document.getElementById('ninjaStarIcon');
+var paper = document.getElementById('paperIcon');
+var pizza = document.getElementById('pizzaIcon');
+var rock = document.getElementById('rockIcon');
+var scissors = document.getElementById('scissorsIcon');
+var sewer = document.getElementById('sewerIcon');
+var turtle = document.getElementById('turtleIcon');
+
+// innerText areas
+var chooseWinText = document.getElementById('chooseText');
+var compWins = document.getElementById('compWinCounter');
+var humanWins = document.getElementById('humanWinCounter');
+
 
 // GLOBAL VARIABLES
 var newGame;
+
 
 // EVENT LISTENERS
 window.addEventListener('load', createGame);
 classicBtn.addEventListener('click', startClassicGame);
 difficultBtn.addEventListener('click', startDifficultGame);
 changeTypeBtn.addEventListener('click', backToBeginning);
+
 
 // EVENT HANDLERS
 //master game functions
@@ -83,13 +82,13 @@ function classicWinSequence() {
   newGame.computerTurn();
   newGame.checkHumanWeapon();
   newGame.determineClassicWinner();
-  disableListener();
+  newGame.loadWins();
+  displayWins();
+  removeListener();
   changeToWinnerText();
   showHumanIcon();
   showCompIcon();
   resetClassicGameBoard();
-  // newGame.loadWins();
-  displayWins();
   // unhideElement(changeTypeBtn);
 }
 
@@ -98,13 +97,13 @@ function difficultWinSequence() {
   newGame.computerDiffTurn();
   newGame.checkHumanWeapon();
   newGame.determineDiffWinner();
-  disableListener();
+  newGame.loadWins()
+  displayWins();
+  removeListener();
   changeToDiffWinnerText();
   showHumanDiffIcon();
   showCompDiffIcon();
   resetDiffGameBoard()
-  // newGame.loadWins()
-  displayWins();
   // unhideElement(changeTypeBtn);
 }
 
@@ -208,20 +207,11 @@ function resetDiffIcons() {
 }
 
 function addListener() {
-  if (newGame.type === 'Classic') {
-    classicGameBoard.addEventListener('click', classicWinSequence);
-  } else {
-    difficultGameBoard.addEventListener('click', difficultWinSequence);
-  }
+  newGame.type === 'Classic' ? classicGameBoard.addEventListener('click', classicWinSequence) : difficultGameBoard.addEventListener('click', difficultWinSequence)
 }
 
-
-function disableListener() {
-  if (newGame.type === 'Classic') {
-    classicGameBoard.removeEventListener('click', classicWinSequence);
-  } else {
-    difficultGameBoard.removeEventListener('click', difficultWinSequence);
-  }
+function removeListener() {
+  newGame.type === 'Classic' ? classicGameBoard.removeEventListener('click', classicWinSequence) : difficultGameBoard.removeEventListener('click', difficultWinSequence)
 }
 
 function showHumanIcon() {
@@ -265,7 +255,7 @@ function showCompIcon() {
 }
 
 function showCompDiffIcon() {
-  if (newGame.randomWeapon === 'Turtle') {
+  if (newGame.randomWeapon === 'Donatello') {
     unhideIconCompShell(compTurtle);
   } else if (newGame.randomWeapon === 'Pizza') {
     unhideIconCompShell(compPizza);
@@ -296,7 +286,7 @@ function changeToWinnerText() {
   } else if (newGame.gameWinner === 'Computer') {
     chooseText.innerText = '🤖 Machine Won This Round! 🤖'
   } else {
-    chooseText.innerText = '🔥  Hooray, Much Human! 🔥'
+    chooseText.innerText = '🧠 Hooray, Much Human! 🧠'
   }
 }
 
