@@ -24,7 +24,16 @@ header {
 
 .main-container {
   width: 74%;
-  background-color: #a1aec4;
+  background-color: #ababab;
+  height: auto;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+}
+
+.diff-container {
+  color: white;
+  width: 74%;
+  background-color: #757573;
   height: auto;
   border-left: 2px solid black;
   border-right: 2px solid black;
@@ -60,7 +69,7 @@ h2, h4 {
   background-image: url(assets/shell.png);
   background-size: 9.3vw;
   background-repeat: repeat;
-  background-color: black;
+  background-color: #757573;
   padding-top: 8%;
 }
 
@@ -72,14 +81,14 @@ h2, h4 {
   padding-top: 2%;
   width: 22vw;
   height: auto;
-  background-color: #97aac9;
+  background-color: #c9c9c9;
   padding-top: 8%;
 }
 
 .choose-game-btn-section {
   margin-top: 0;
   height: 67vh;
-  background-color: #a1aec4;
+  background-color: #ababab;
 }
 
 .classic-btn {
@@ -89,8 +98,9 @@ h2, h4 {
   border-radius: 0.5em;
   width: 15vw;
   height: 15.6vh;
-  color: white;
+  color: #c9c9c9;
   cursor: pointer;
+  border: 4px solid black;
   background-color: rebeccaPurple;
 }
 
@@ -101,8 +111,12 @@ h2, h4 {
   border-radius: 0.5em;
   width: 20vw;
   height: 20.6vh;
-  color: white;
+  color: #c9c9c9;
   cursor: pointer;
+  border: 4px solid black;
+  background-image: url(assets/shell.png);
+  background-size: 5vw;
+  background-repeat: repeat;
   background-color: rebeccaPurple;
 }
 
@@ -152,9 +166,9 @@ h2, h4 {
 }
 
 img {
-  width: 12vw;
-  height: 17vh;
-  padding-top: 20vh;
+  width: 10vw;
+  height: 20vh;
+  /* padding-top: 20vh; */
   padding-bottom: 24vh;
 }
 
@@ -167,15 +181,16 @@ img:hover {
 }
 
 .paper {
-  padding-left: 5vw;
-  padding-right: 5vw;
+  padding-left: 8vw;
+  padding-right: 8vw;
 }
 
 .top-row-classic {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  width: 50vw;
   height: 28vh;
   box-sizing: border-box;
 }
@@ -183,9 +198,11 @@ img:hover {
 .top-row-diff {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  margin-top: 1vh;
   margin-bottom: 15vh;
+  width: 50vw;
   height: 10vh;
   box-sizing: border-box;
 }
@@ -195,21 +212,22 @@ img:hover {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 7vh;
-  height: 20vh;
+  margin-top: 4vh;
+  width: 50vw;
+  height: 10vh;
 }
 
-
-.ninja-star {
-  padding-right: 15vw;
-  height: 10vh;
-  margin-bottom: 80vh;
+.pizza {
+  padding-left: 3vw;
+  padding-right: 3vw;
 }
 
-.microphone {
-  padding-left: 15vw;
-  height: 10vh;
-  margin-bottom: 80vh;
+.star {
+  padding-left: 3vw;
+}
+
+.mic {
+  padding-right: 3vw;
 }
 
 .rockIcon,
