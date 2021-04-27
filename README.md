@@ -51,9 +51,9 @@ Put pics or gifs here
   5. GitHub
 
 ## Contributors
-  [Beth Meeker](https://github.com/Meekb)
+  Beth Meeker https://github.com/Meekb
   
-  Code Review: [Taryn Martin](https://github.com/tarynmartin)
+  Code Review by Taryn Martin https://github.com/tarynmartin
 
 ## Resources
   1. [MDN Web Docs](https://developer.mozilla.org/en-US/)
