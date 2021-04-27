@@ -64,3 +64,4 @@ Put pics or gifs here
   1. Clone this repo to your local machine
   2. cd into repo from the terminal
   3. open index.html from the terminal command line to launch index file
+  4. OR just visit my deplyed page [Mutant Rock Paper Scissors](https://meekb.github.io/RockPaperScissors/)
