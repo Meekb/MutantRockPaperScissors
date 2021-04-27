@@ -75,7 +75,7 @@ function startDifficultGame() {
 function classicWinSequence() {
   removeListener();
   newGame.computerTurn();
-  newGame.checkHumanWeapon();
+  playerTakeTurn();
   newGame.determineClassicWinner();
   newGame.loadWins();
   displayWins();
@@ -88,7 +88,7 @@ function classicWinSequence() {
 function difficultWinSequence() {
   removeListener();
   newGame.computerDiffTurn();
-  newGame.checkHumanWeapon();
+  playerTakeDiffTurn();
   newGame.determineDiffWinner();
   newGame.loadWins()
   changeToDiffWinnerText();
@@ -103,7 +103,7 @@ function resetClassicGameBoard() {
     changeToClassicPickText();
     resetClassIcons();
     addListener();
-  }, 1500);
+  }, 2000);
   if (changeTypeBtn.classList.contains('hidden')) {
     unhideElement(changeTypeBtn);
   }
@@ -114,7 +114,7 @@ function resetDiffGameBoard() {
     changeToDiffPickText();
     resetDiffIcons()
     addListener();
-  }, 1500);
+  }, 2000);
   if (changeTypeBtn.classList.contains('hidden')) {
     unhideElement(changeTypeBtn);
   }
@@ -150,6 +150,30 @@ function changeToGameScreen() {
     unhideElement(classicGameBoard);
   } else {
     unhideElement(difficultGameBoard);
+  }
+}
+
+function playerTakeTurn(iconId) {
+  if (event.target.id === 'rockIcon') {
+    newGame.human.takeTurn('rock')
+  } else if (event.target.id === 'paperIcon') {
+    newGame.human.takeTurn('paper')
+  } else {
+    newGame.human.takeTurn('scissors')
+  }
+}
+
+function playerTakeDiffTurn(iconId) {
+  if (event.target.closest('#turtleIcon')) {
+    newGame.human.takeDiffTurn('#turtleIcon')
+  } else if (event.target.closest('#pizzaIcon')) {
+    newGame.human.takeDiffTurn('#pizzaIcon')
+  } else if (event.target.closest('#sewerIcon')) {
+    newGame.human.takeDiffTurn('#sewerIcon')
+  } else if (event.target.closest('#micIcon')) {
+    newGame.human.takeDiffTurn('#micIcon')
+  } else {
+    newGame.human.takeDiffTurn('#ninjaStarIcon')
   }
 }
 
@@ -259,11 +283,11 @@ function showCompDiffIcon() {
 }
 
 function changeToChooseGameText() {
-  chooseWinText.innerText = 'Choose Your Game!'
+  chooseWinText.innerText = 'Human, Choose Your Game!'
 }
 
 function changeToClassicPickText() {
-  chooseWinText.innerText = '⬇ Human Pick Your Weapon ⬇'
+  chooseWinText.innerText = '⬇ Human, Pick Your Weapon ⬇'
 }
 
 function changeToDiffPickText() {
@@ -274,9 +298,9 @@ function changeToWinnerText() {
   if (newGame.gameWinner === 'DRAW') {
     chooseText.innerText = '🗑 Sorry, It Was A Draw! 🗑'
   } else if (newGame.gameWinner === 'Computer') {
-    chooseText.innerText = '🤖 Machine Won This Round! 🤖'
+    chooseText.innerText = '🤖 Machine WOW! Much Win! 🤖'
   } else {
-    chooseText.innerText = '🧠 Hooray, Much Human! 🧠'
+    chooseText.innerText = '🧠 Hooray! Much Human! Most WOW! 🧠'
   }
 }
 

@@ -10,24 +10,26 @@ class Player {
     }
   }
 
-  takeTurn() {
-    if (event.target.id === 'rockIcon') {
+  takeTurn(iconId) {
+    this.weapon = iconId;
+    if (iconId === 'rock') {
       this.weapon = 'rock'
-    } else if (event.target.id === 'paperIcon') {
+    } else if (iconId === 'paper') {
       this.weapon = 'paper'
     } else {
       this.weapon = 'scissors'
     }
   }
 
-  takeDiffTurn() {
-    if (event.target.closest('#turtleIcon')) {
+  takeDiffTurn(iconId) {
+    this.weapon = iconId
+    if (iconId === '#turtleIcon') {
       this.weapon = 'Donatello'
-    } else if (event.target.closest('#pizzaIcon')) {
+    } else if (iconId === '#pizzaIcon') {
       this.weapon = 'Pizza'
-    } else if (event.target.closest('#sewerIcon')) {
+    } else if (iconId === '#sewerIcon') {
       this.weapon = 'Sewer'
-    } else if (event.target.closest('#micIcon')) {
+    } else if (iconId === '#micIcon') {
       this.weapon = 'News Microphone'
     } else {
       this.weapon = 'Ninja Star'
