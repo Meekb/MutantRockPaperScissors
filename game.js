@@ -25,15 +25,11 @@ class Game {
     this.computer.wins = this.computer.retrieveWinsFromStorage();
   }
 
-  checkHumanWeapon() {
-    this.type === 'Classic' ? this.human.takeTurn() : this.human.takeDiffTurn()
-  }
-
   computerTurn() {
-    var randomIndex = Math.floor(Math.random() * 2);
-    if (randomIndex === 0) {
+    var randomIndex = Math.floor(Math.random() * 3);
+    if (randomIndex === 1) {
       this.randomWeapon = 'rock'
-    } else if (randomIndex === 1) {
+    } else if (randomIndex === 2) {
       this.randomWeapon = 'paper';
     } else {
       this.randomWeapon = 'scissors'
@@ -41,17 +37,17 @@ class Game {
   }
 
   computerDiffTurn() {
-    var randomIndex = Math.floor(Math.random() * 4);
-    if (randomIndex === 0) {
+    var randomIndex = Math.floor(Math.random() * 5);
+    if (randomIndex === 1) {
       this.randomWeapon = 'Donatello'
       this.computer.weapon = 'Donatello';
-    } else if (randomIndex === 1) {
+    } else if (randomIndex === 2) {
       this.randomWeapon = 'Pizza';
       this.computer.weapon = 'Pizza';
-    } else if (randomIndex === 2) {
+    } else if (randomIndex === 3) {
       this.randomWeapon = 'Sewer'
       this.computer.weapon = 'Sewer';
-    } else if (randomIndex === 3) {
+    } else if (randomIndex === 4) {
       this.randomWeapon = 'News Microphone'
       this.computer.weapon === 'News Microphone'
     } else {
@@ -81,7 +77,6 @@ class Game {
   determineDiffWinner() {
     if (this.human.weapon === this.randomWeapon) {
       this.gameWinner = 'DRAW'
-      console.log(this.gameWinner)
     } else if (this.human.weapon === 'Turtle' && (this.randomWeapon === 'Pizza' || this.randomWeapon === 'News Microphone')) {
       this.gameWinner = 'Human'
       this.human.winIncrease();
