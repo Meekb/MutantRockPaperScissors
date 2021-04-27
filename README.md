@@ -17,7 +17,7 @@ A [Front-End Project] by: [Beth Meeker](https://github.com/Meekb)
   Mutant Rock Paper Scissors is a web application which presents the user with an option to play in classic mode, or with a difficult Ninja Turtle theme. The classic game consists of the three classic icons - rock, paper, and scissors - which can be clicked by the user to indicate their selction. Difficult mode transforms the user into a sewer-like realm, where Donatello must face The Shredder, picking from five icons: Donnie, Pizza, Sewer, News Microphone, and Ninja Star. 
 The rules ares indicated on the respective game type buttons.
 
-Put pics or gifs here
+![recording](https://user-images.githubusercontent.com/76264735/116307133-2d631080-a763-11eb-9fda-0311bddc5860.gif)
 
 ## Functionality
   
