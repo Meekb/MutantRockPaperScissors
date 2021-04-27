@@ -5,6 +5,7 @@
   length: 100%;
   font-family: Monaco; sans serif;
   font-weight: 600;
+  text-shadow: 4px 4px 10px #54f7ac;
 }
 
 body, html {
@@ -70,8 +71,8 @@ header {
   justify-content: flex-start;
   align-items: center;
   color: black;
-  text-shadow: 3px 3px #54f7ac;
   font-size: 2em;
+  text-shadow: 3px 3px #54f7ac;
 }
 
 .aside-diff-layout {
@@ -86,7 +87,7 @@ header {
   background-image: url(assets/shell.png);
   background-size: 9.3vw;
   background-repeat: repeat;
-  background-color: black;
+  background-color: rgb(12 2 21 / 56%);
 }
 
 .easy {
@@ -94,11 +95,11 @@ header {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 2%;
+  padding-top: 8%;
+  font-size: 1.5em;
   width: 22vw;
   height: auto;
   background-color: #c9c9c9;
-  padding-top: 8%;
 }
 
 

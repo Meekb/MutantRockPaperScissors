@@ -18,7 +18,6 @@ class Player {
     } else {
       this.weapon = 'scissors'
     }
-    console.log(this.weapon)
   }
 
   takeDiffTurn() {
@@ -33,7 +32,6 @@ class Player {
     } else {
       this.weapon = 'Ninja Star'
     }
-    console.log(this.weapon)
   }
 
   winIncrease() {
@@ -46,7 +44,8 @@ class Player {
   }
 
   retrieveWinsFromStorage() {
-    this.wins = +localStorage.getItem(this.name) || 0;
+    this.wins = +localStorage.getItem(this.name);
+    return this.wins;
   }
 
 };

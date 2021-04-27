@@ -50,24 +50,19 @@ changeTypeBtn.addEventListener('click', backToBeginning);
 // EVENT HANDLERS
 //master game functions
 function startClassicGame() {
-  // createGame();
   resetClassIcons();
-  newGame.gameType();
-  newGame.loadPlayerNames();
+  newGame.gameType(classicBtn);
   newGame.loadTokens()
   newGame.loadWins();
   displayWins();
   addListener();
   changeToGameScreen();
   changeToClassicPickText();
-  console.log(newGame);
 }
 
 function startDifficultGame() {
-  // createGame();
   resetDiffIcons();
   newGame.gameType();
-  newGame.loadPlayerNames();
   newGame.loadTokens();
   newGame.loadWins();
   displayWins();
@@ -75,36 +70,32 @@ function startDifficultGame() {
   applyDiffLayout();
   changeToGameScreen();
   changeToDiffPickText();
-  console.log(newGame);
 }
 
 function classicWinSequence() {
+  removeListener();
   newGame.computerTurn();
   newGame.checkHumanWeapon();
   newGame.determineClassicWinner();
   newGame.loadWins();
   displayWins();
-  removeListener();
   changeToWinnerText();
   showHumanIcon();
   showCompIcon();
   resetClassicGameBoard();
-  // unhideElement(changeTypeBtn);
 }
 
-
 function difficultWinSequence() {
+  removeListener();
   newGame.computerDiffTurn();
   newGame.checkHumanWeapon();
   newGame.determineDiffWinner();
   newGame.loadWins()
-  displayWins();
-  removeListener();
   changeToDiffWinnerText();
+  displayWins();
   showHumanDiffIcon();
   showCompDiffIcon();
   resetDiffGameBoard()
-  // unhideElement(changeTypeBtn);
 }
 
 function resetClassicGameBoard() {
@@ -112,7 +103,7 @@ function resetClassicGameBoard() {
     changeToClassicPickText();
     resetClassIcons();
     addListener();
-  }, 3000);
+  }, 1500);
   if (changeTypeBtn.classList.contains('hidden')) {
     unhideElement(changeTypeBtn);
   }
@@ -123,7 +114,7 @@ function resetDiffGameBoard() {
     changeToDiffPickText();
     resetDiffIcons()
     addListener();
-  }, 3000);
+  }, 1500);
   if (changeTypeBtn.classList.contains('hidden')) {
     unhideElement(changeTypeBtn);
   }
@@ -132,18 +123,17 @@ function resetDiffGameBoard() {
 function backToBeginning() {
   if (newGame.type === 'Difficult') {
     applyClassicLayout();
-    // rehideCompDiffIcon()
     hideElement(changeTypeBtn);
     hideElement(difficultGameBoard);
     unhideElement(chooseScreen);
+    createGame();
     changeToChooseGameText()
-    displayWins()
   } else {
     hideElement(changeTypeBtn);
     hideElement(classicGameBoard);
     unhideElement(chooseScreen);
+    createGame()
     changeToChooseGameText();
-    displayWins();
   }
 }
 

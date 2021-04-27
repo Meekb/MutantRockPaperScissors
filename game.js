@@ -1,33 +1,28 @@
 class Game {
   constructor() {
-    this.human = new Player()
-    this.computer = new Player();
+    this.human = new Player('Human')
+    this.computer = new Player('Machine');
     this.type = 'Classic' || 'Difficult';
     this.randomWeapon = '';
   }
 
-  gameType() {
-    event.target.id === 'classicBtn' ? this.type = 'Classic' : this.type = 'Difficult';
-  }
-
-  loadPlayerNames() {
-    if (this.type === 'Classic') {
-      this.human.name = 'Human';
-      this.computer.name = 'Machine';
-    } else {
-      this.human.name = 'Donatello';
-      this.computer.name = 'Shredder'
-    }
+  gameType(button) {
+    button === classicBtn ? this.type = 'Classic' : this.type = 'Difficult';
   }
 
   loadTokens() {
-    if (event.target.id === 'classicBtn') {
+    if (this.type === 'Classic') {
       this.human.token = '🧠'
       this.computer.token = '🤖'
-    } else if (this.type === 'Difficult') {
+    } else {
       this.human.token = '🥷🏽'
       this.computer.token = '👿'
     }
+  }
+
+  loadWins() {
+    this.human.wins = this.human.retrieveWinsFromStorage()
+    this.computer.wins = this.computer.retrieveWinsFromStorage();
   }
 
   checkHumanWeapon() {
@@ -106,11 +101,6 @@ class Game {
       this.gameWinner = 'Computer'
       this.computer.winIncrease();
     }
-  }
-
-  loadWins() {
-    this.human.retrieveWinsFromStorage()
-    this.computer.retrieveWinsFromStorage();
   }
 
 };
