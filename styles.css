@@ -1,5 +1,4 @@
 * {
-  /* border: 2px solid blue; */
   margin: 0;
   padding: 0;
   length: 100%;
@@ -8,14 +7,13 @@
   text-shadow: 4px 4px 10px #54f7ac;
 }
 
-body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+h1 {
+  text-align:center;
 }
 
 h2, h4 {
   margin: 4% 2%;
+  text-align: center;
 }
 
 header {
@@ -23,15 +21,13 @@ header {
   flex-direction: row;
   justify-content: center;
   font-size: 1.8em;
-  margin-top: 1%;
-  transform: tranlate(-50%, -50%);
 }
 
+/* containers */
 .main-container {
-  width: 74%;
   background-color: #ababab;
   text-shadow: 2px 2px #f0f2f1;
-  height: auto;
+  min-height: 100vh;
   border-left: 7px solid black;
   border-right: 7px solid black;
 }
@@ -41,7 +37,6 @@ header {
   text-shadow: 4px 4px #54f7ac;
   width: 74%;
   background-color: #3f7038;
-  height: auto;
   border-left: 7px solid black;
   border-right: 7px solid black;
 }
@@ -50,9 +45,9 @@ header {
 .whole-page {
   display: flex;
   flex-direction: row;
-  length: 100%;
 }
 
+/* player areas and icons*/
 .player {
   filter: drop-shadow(0rem 0 2rem #54f7ac);
 }
@@ -68,8 +63,9 @@ header {
 .player-info {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
+  padding-top: 8%;
   color: black;
   font-size: 2em;
   text-shadow: 3px 3px #54f7ac;
@@ -80,9 +76,7 @@ header {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 8%;
   width: 22vw;
-  height: auto;
   font-size: 1.5em;
   background-image: url(assets/shell.png);
   background-size: 9.3vw;
@@ -90,22 +84,18 @@ header {
   background-color: rgb(12 2 21 / 56%);
 }
 
+/* game type buttons */
 .easy {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 8%;
   font-size: 1.5em;
   width: 22vw;
-  height: auto;
   background-color: #c9c9c9;
 }
 
-
 .choose-game-btn-section {
-  margin-top: 0;
-  height: 67vh;
   background-color: #ababab;
 }
 
@@ -130,10 +120,9 @@ header {
 
 .difficult-btn {
   box-sizing: border-box;
-  font-size: 1.1em;
   font-weight: 600;
   border-radius: 0.5em;
-  width: 20vw;
+  width: 22vw;
   height: 20.6vh;
   color: #c9c9c9;
   cursor: pointer;
@@ -175,31 +164,31 @@ header {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  width: 55vw;
-  height: 60vh;
+  height: 100%;
 }
 
 .choose-area {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 69vh;
+  height: 62vh;
 }
 
+/* game boards */
 .classic-game-board {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  height: 70vh;
+  height: 65vh;
 }
 
 .difficult-game-board {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  height: 67vh;
 }
 
 .icon {
@@ -210,7 +199,7 @@ header {
 img {
   width: 10vw;
   height: 20vh;
-  padding-bottom: 24vh;
+  margin: 20px;
 }
 
 img:hover {
@@ -220,38 +209,6 @@ img:hover {
 .paper {
   padding-left: 8vw;
   padding-right: 8vw;
-}
-
-.top-row-classic {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 50vw;
-  height: 28vh;
-  box-sizing: border-box;
-}
-
-.top-row-diff {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 1vh;
-  margin-bottom: 15vh;
-  width: 50vw;
-  height: 10vh;
-  box-sizing: border-box;
-}
-
-.bottom-row-diff {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 4vh;
-  width: 50vw;
-  height: 10vh;
 }
 
 .pizza {
@@ -267,6 +224,7 @@ img:hover {
   padding-right: 3vw;
 }
 
+/* display none */
 .hidden {
   display: none;
 }
