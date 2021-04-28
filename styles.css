@@ -62,6 +62,7 @@ header {
 
 .player-info {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -73,6 +74,7 @@ header {
 
 .aside-diff-layout {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -100,7 +102,6 @@ header {
 }
 
 .classic-btn {
-  box-sizing: border-box;
   font-size: 1.1em;
   font-weight: 600;
   border-radius: 0.5em;
@@ -119,7 +120,6 @@ header {
 }
 
 .difficult-btn {
-  box-sizing: border-box;
   font-weight: 600;
   border-radius: 0.5em;
   width: 22vw;
