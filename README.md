@@ -18,7 +18,8 @@ A [Front-End Project] by: [Beth Meeker](https://github.com/Meekb)
 The rules ares indicated on the respective game type buttons.
 
 
-![recording (1)](https://user-images.githubusercontent.com/76264735/116308319-96975380-a764-11eb-9d0e-f2c21292e3c4.gif)
+![recording (2)](https://user-images.githubusercontent.com/76264735/116328815-0f0f0c00-a787-11eb-93f3-81ccb7bb4fa7.gif)
+
 
 ## Functionality
   
@@ -51,6 +52,7 @@ The rules ares indicated on the respective game type buttons.
   3. JavaScript
   4. Atom
   5. GitHub
+  6. gifcap (https://gifcap.dev/)
 
 ## Contributors
   Beth Meeker https://github.com/Meekb
