@@ -46,7 +46,7 @@ class Player {
   }
 
   retrieveWinsFromStorage() {
-    this.wins = +localStorage.getItem(this.name);
+    this.wins = localStorage.getItem(this.name);
     return this.wins;
   }
 
