@@ -42,34 +42,39 @@ var newGame;
 
 // EVENT LISTENERS
 window.addEventListener('load', createGame);
-classicBtn.addEventListener('click', startClassicGame);
-difficultBtn.addEventListener('click', startDifficultGame);
 changeTypeBtn.addEventListener('click', backToBeginning);
+classicBtn.addEventListener('click', start);
+difficultBtn.addEventListener('click', start);
 
 
 // EVENT HANDLERS
 //master game functions
-function startClassicGame() {
-  resetClassIcons();
-  newGame.gameType(classicBtn);
-  newGame.loadTokens()
-  newGame.loadWins();
-  displayWins();
-  addListener();
-  changeToGameScreen();
-  changeToClassicPickText();
+
+function start() {
+  startGame(event);
 }
 
-function startDifficultGame() {
-  resetDiffIcons();
-  newGame.gameType();
-  newGame.loadTokens();
-  newGame.loadWins();
-  displayWins();
-  addListener();
-  applyDiffLayout();
-  changeToGameScreen();
-  changeToDiffPickText();
+function startGame(event) {
+  if (event.target.id === 'classicBtn') {
+    resetClassIcons();
+    newGame.gameType(classicBtn);
+    newGame.loadTokens()
+    newGame.loadWins();
+    displayWins();
+    addListener();
+    changeToGameScreen();
+    changeToClassicPickText();
+  } else if (event.target.id === 'difficultBtn') {
+    resetDiffIcons();
+    newGame.gameType();
+    newGame.loadTokens();
+    newGame.loadWins();
+    displayWins();
+    addListener();
+    applyDiffLayout();
+    changeToGameScreen();
+    changeToDiffPickText();
+  }
 }
 
 function classicWinSequence() {
