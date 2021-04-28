@@ -103,7 +103,7 @@ function resetClassicGameBoard() {
     changeToClassicPickText();
     resetClassIcons();
     addListener();
-  }, 2000);
+  }, 1200);
   if (changeTypeBtn.classList.contains('hidden')) {
     unhideElement(changeTypeBtn);
   }
@@ -114,7 +114,7 @@ function resetDiffGameBoard() {
     changeToDiffPickText();
     resetDiffIcons()
     addListener();
-  }, 2000);
+  }, 1200);
   if (changeTypeBtn.classList.contains('hidden')) {
     unhideElement(changeTypeBtn);
   }
@@ -287,7 +287,7 @@ function changeToChooseGameText() {
 }
 
 function changeToClassicPickText() {
-  chooseWinText.innerText = '⬇ Human, Pick Your Weapon ⬇'
+  chooseWinText.innerText = '⬇ Human, Pick Weapon ⬇'
 }
 
 function changeToDiffPickText() {
