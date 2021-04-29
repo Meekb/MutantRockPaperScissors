@@ -35,67 +35,70 @@ var chooseWinText = document.getElementById('chooseText');
 var compWins = document.getElementById('compWinCounter');
 var humanWins = document.getElementById('humanWinCounter');
 
-
 // GLOBAL VARIABLES
 var newGame;
 
-
 // EVENT LISTENERS
 window.addEventListener('load', createGame);
-classicBtn.addEventListener('click', startClassicGame);
-difficultBtn.addEventListener('click', startDifficultGame);
 changeTypeBtn.addEventListener('click', backToBeginning);
-
+classicBtn.addEventListener('click', start);
+difficultBtn.addEventListener('click', start);
 
 // EVENT HANDLERS
 //master game functions
-function startClassicGame() {
-  resetClassIcons();
-  newGame.gameType(classicBtn);
-  newGame.loadTokens()
-  newGame.loadWins();
-  displayWins();
-  addListener();
-  changeToGameScreen();
-  changeToClassicPickText();
+
+function start() {
+  startGame(event);
 }
 
-function startDifficultGame() {
-  resetDiffIcons();
-  newGame.gameType();
-  newGame.loadTokens();
-  newGame.loadWins();
-  displayWins();
-  addListener();
-  applyDiffLayout();
-  changeToGameScreen();
-  changeToDiffPickText();
+function startGame(event) {
+  if (event.target.id === 'classicBtn') {
+    resetClassIcons();
+    newGame.gameType(classicBtn);
+    newGame.loadTokens()
+    newGame.loadWins();
+    displayWins();
+    addListener();
+    changeToGameScreen();
+    changeToClassicPickText();
+  } else if (event.target.id === 'difficultBtn') {
+    resetDiffIcons();
+    newGame.gameType();
+    newGame.loadTokens();
+    newGame.loadWins();
+    displayWins();
+    addListener();
+    applyDiffLayout();
+    changeToGameScreen();
+    changeToDiffPickText();
+  }
 }
 
-function classicWinSequence() {
-  removeListener();
-  newGame.computerTurn();
-  playerTakeTurn();
-  newGame.determineClassicWinner();
-  newGame.loadWins();
-  displayWins();
-  changeToWinnerText();
-  showHumanIcon();
-  showCompIcon();
-  resetClassicGameBoard();
-}
-
-function difficultWinSequence() {
-  removeListener();
-  newGame.computerDiffTurn();
-  playerTakeDiffTurn();
-  newGame.determineDiffWinner();
-  newGame.loadWins()
-  changeToDiffWinnerText();
-  displayWins();
-  showHumanDiffIcon();
-  showCompDiffIcon();
-  resetDiffGameBoard()
+function runWinSequence(type) {
+  type = newGame.type;
+  if (newGame.type === 'Classic') {
+    removeListener();
+    newGame.computerTurn();
+    playerTakeTurn();
+    newGame.determineClassicWinner();
+    newGame.loadWins();
+    displayWins();
+    changeToWinnerText();
+    showHumanIcon();
+    showCompIcon();
+    resetClassicGameBoard();
+  } else {
+    removeListener();
+    newGame.computerDiffTurn();
+    playerTakeDiffTurn();
+    newGame.determineDiffWinner();
+    newGame.loadWins()
+    changeToDiffWinnerText();
+    displayWins();
+    showHumanDiffIcon();
+    showCompDiffIcon();
+    resetDiffGameBoard()
+  }
 }
 
 function resetClassicGameBoard() {
@@ -221,11 +224,11 @@ function resetDiffIcons() {
 }
 
 function addListener() {
-  newGame.type === 'Classic' ? classicGameBoard.addEventListener('click', classicWinSequence) : difficultGameBoard.addEventListener('click', difficultWinSequence)
+  newGame.type === 'Classic' ? classicGameBoard.addEventListener('click', runWinSequence) : difficultGameBoard.addEventListener('click', runWinSequence)
 }
 
 function removeListener() {
-  newGame.type === 'Classic' ? classicGameBoard.removeEventListener('click', classicWinSequence) : difficultGameBoard.removeEventListener('click', difficultWinSequence)
+  newGame.type === 'Classic' ? classicGameBoard.removeEventListener('click', runWinSequence) : difficultGameBoard.removeEventListener('click', runWinSequence)
 }
 
 function showHumanIcon() {
