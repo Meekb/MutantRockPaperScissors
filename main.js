@@ -163,7 +163,7 @@ function takePlayerTurn(iconId) {
     newGame.human.takeTurn('paper')
   } else {
     newGame.human.takeTurn('scissors')
-  } 
+  }
 }
 
 function takePlayerDiffTurn(iconId) {
