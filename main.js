@@ -79,7 +79,7 @@ function runWinSequence(type) {
   if (newGame.type === 'Classic') {
     removeListener();
     newGame.computerTurn();
-    playerTakeTurn();
+    takePlayerTurn();
     newGame.determineClassicWinner();
     newGame.loadWins();
     displayWins();
@@ -90,7 +90,7 @@ function runWinSequence(type) {
   } else {
     removeListener();
     newGame.computerDiffTurn();
-    playerTakeDiffTurn();
+    takePlayerDiffTurn();
     newGame.determineDiffWinner();
     newGame.loadWins()
     changeToDiffWinnerText();
@@ -156,7 +156,7 @@ function changeToGameScreen() {
   }
 }
 
-function playerTakeTurn(iconId) {
+function takePlayerTurn(iconId) {
   if (event.target.id === 'rockIcon') {
     newGame.human.takeTurn('rock')
   } else if (event.target.id === 'paperIcon') {
@@ -166,7 +166,7 @@ function playerTakeTurn(iconId) {
   }
 }
 
-function playerTakeDiffTurn(iconId) {
+function takePlayerDiffTurn(iconId) {
   if (event.target.closest('#turtleIcon')) {
     newGame.human.takeDiffTurn('#turtleIcon')
   } else if (event.target.closest('#pizzaIcon')) {
