@@ -53,7 +53,7 @@ function start() {
 
 function startGame(event) {
   if (event.target.id === 'classicBtn') {
-    resetClassIcons();
+    resetIcons();
     newGame.gameType(classicBtn);
     newGame.loadTokens()
     newGame.loadWins();
@@ -62,7 +62,7 @@ function startGame(event) {
     changeToGameScreen();
     changeToClassicPickText();
   } else if (event.target.id === 'difficultBtn') {
-    resetDiffIcons();
+    resetIcons();
     newGame.gameType();
     newGame.loadTokens();
     newGame.loadWins();
@@ -104,7 +104,7 @@ function runWinSequence(type) {
 function resetClassicGameBoard() {
   setTimeout(function () {
     changeToClassicPickText();
-    resetClassIcons();
+    resetIcons();
     addListener();
   }, 1200);
   if (changeTypeBtn.classList.contains('hidden')) {
@@ -115,7 +115,7 @@ function resetClassicGameBoard() {
 function resetDiffGameBoard() {
   setTimeout(function () {
     changeToDiffPickText();
-    resetDiffIcons()
+    resetIcons()
     addListener();
   }, 1200);
   if (changeTypeBtn.classList.contains('hidden')) {
@@ -203,24 +203,18 @@ function displayWins() {
   compWinCounter.innerText = newGame.computer.wins;
 }
 
-function resetClassIcons() {
-  for (var i = 0; i < allIcons.length; i++) {
-    if (allIcons[i].classList.contains('comp') && !allIcons[i].classList.contains('hidden')){
-      hideElement(allIcons[i])
-    } else if (allIcons[i].classList.contains('ctri') && allIcons[i].classList.contains('hidden')) {
-      unhideElement(allIcons[i]);
-    }
+function resetIcons() {
+  allIcons.forEach(icon => {
+    if (icon.classList.contains('comp') && !icon.classList.contains('hidden')) {
+    hideElement(icon);
+  } else if (icon.classList.contains('ctri') && icon.classList.contains('hidden')) {
+    unhideElement(icon);
+  } else if (icon.classList.contains('dcomp') && !icon.classList.contains('hidden')) {
+    hideElement(icon);
+  } else if (icon.classList.contains('dtri') && icon.classList.contains('hidden')) {
+    unhideElement(icon);
   }
-}
-
-function resetDiffIcons() {
-  for (var i = 0; i < allIcons.length; i++) {
-    if (allIcons[i].classList.contains('dcomp') && !allIcons[i].classList.contains('hidden')) {
-      hideElement(allIcons[i])
-    } else if (allIcons[i].classList.contains('dtri') && allIcons[i].classList.contains('hidden')) {
-      unhideElement(allIcons[i]);
-    }
-  }
+ });
 }
 
 function addListener() {
