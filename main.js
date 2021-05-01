@@ -61,7 +61,7 @@ function startGame(event) {
     addListener();
     changeToGameScreen();
     changeToClassicPickText();
-  } else if (event.target.id === 'difficultBtn') {
+  } else {
     resetIcons();
     newGame.gameType();
     newGame.loadTokens();
@@ -86,7 +86,7 @@ function runWinSequence(type) {
     changeToWinnerText();
     showHumanIcon();
     showCompIcon();
-    resetClassicGameBoard();
+    resetGameBoard();
   } else {
     removeListener();
     newGame.computerDiffTurn();
@@ -97,29 +97,29 @@ function runWinSequence(type) {
     displayWins();
     showHumanDiffIcon();
     showCompDiffIcon();
-    resetDiffGameBoard()
+    resetGameBoard()
   }
 }
 
-function resetClassicGameBoard() {
-  setTimeout(function () {
-    changeToClassicPickText();
-    resetIcons();
-    addListener();
-  }, 1200);
-  if (changeTypeBtn.classList.contains('hidden')) {
-    unhideElement(changeTypeBtn);
-  }
-}
-
-function resetDiffGameBoard() {
-  setTimeout(function () {
-    changeToDiffPickText();
-    resetIcons()
-    addListener();
-  }, 1200);
-  if (changeTypeBtn.classList.contains('hidden')) {
-    unhideElement(changeTypeBtn);
+function resetGameBoard(type) {
+  if (newGame.type === 'Classic') {
+    setTimeout(function () {
+      changeToClassicPickText();
+      resetIcons();
+      addListener();
+    }, 1200);
+    if (changeTypeBtn.classList.contains('hidden')) {
+      unhideElement(changeTypeBtn);
+    }
+  } else {
+    setTimeout(function () {
+      changeToDiffPickText();
+      resetIcons()
+      addListener();
+    }, 1200);
+    if (changeTypeBtn.classList.contains('hidden')) {
+      unhideElement(changeTypeBtn);
+    }
   }
 }
 
