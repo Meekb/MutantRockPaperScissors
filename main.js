@@ -40,7 +40,7 @@ var newGame;
 
 // EVENT LISTENERS
 window.addEventListener('load', createGame);
-changeTypeBtn.addEventListener('click', backToBeginning);
+changeTypeBtn.addEventListener('click', goBackToMainMenu);
 classicBtn.addEventListener('click', start);
 difficultBtn.addEventListener('click', start);
 
@@ -123,15 +123,19 @@ function resetGameBoard(type) {
   }
 }
 
-function backToBeginning() {
-  if (newGame.type === 'Difficult') {
+function goBackToMainMenu() {
+  switch (newGame.type) {
+
+    case 'Difficult':
     applyClassicLayout();
     hideElement(changeTypeBtn);
     hideElement(difficultGameBoard);
     unhideElement(chooseScreen);
     createGame();
     changeToChooseGameText()
-  } else {
+    break;
+
+    case 'Classic':
     hideElement(changeTypeBtn);
     hideElement(classicGameBoard);
     unhideElement(chooseScreen);
@@ -139,6 +143,23 @@ function backToBeginning() {
     changeToChooseGameText();
   }
 }
+
+// function goBackToMainMenu() {
+//   if (newGame.type === 'Difficult') {
+    // applyClassicLayout();
+    // hideElement(changeTypeBtn);
+    // hideElement(difficultGameBoard);
+    // unhideElement(chooseScreen);
+    // createGame();
+    // changeToChooseGameText()
+//   } else {
+    // hideElement(changeTypeBtn);
+    // hideElement(classicGameBoard);
+    // unhideElement(chooseScreen);
+    // createGame()
+    // changeToChooseGameText();
+//   }
+// }
 
 function createGame() {
   newGame = new Game();
